@@ -92,13 +92,13 @@ export const data = [
                       {
                           "x": "Alumni Sans Pinstripe",
                           "a": "Alumni Sans Pinstripe Regular",
-                          "y": "http://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNNjOFFPq_AUJD1umyS30W-Xub8zD1ObhezZ7VIpcDA5w.woff2",
+                          "y": "https://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNNjOFFPq_AUJD1umyS30W-Xub8zD1ObhezZ7VIpcDA5w.woff2",
                           "z": "regular",
                           "aa": [
                               {
                                   "x": "Alumni Sans Pinstripe",
                                   "a": "Alumni Sans Pinstripe Italic",
-                                  "y": "http://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNDjOFFPq_AUJD1umyS30W-Xub8zD1ObheDYL9Jh8XQ5_cY.woff2",
+                                  "y": "https://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNDjOFFPq_AUJD1umyS30W-Xub8zD1ObheDYL9Jh8XQ5_cY.woff2",
                                   "z": "italic"
                               }
                           ]
@@ -169,7 +169,7 @@ export const data = [
                       {
                           "x": "Alfa Slab One",
                           "a": "Alfa Slab One Regular",
-                          "y": "http://fonts.gstatic.com/s/alfaslabone/v19/6NUQ8FmMKwSEKjnm5-4v-4Jh6dBretWvYmE.woff2",
+                          "y": "https://fonts.gstatic.com/s/alfaslabone/v19/6NUQ8FmMKwSEKjnm5-4v-4Jh6dBretWvYmE.woff2",
                           "z": "regular",
                           "aa": []
                       }
