@@ -128,10 +128,9 @@ Usage
 Here's an example usage of the CanvaEditor component within a React component:
 
 ```javascript
-import { CanvaEditor } from 'canva-editor/components/editor';
+import { CanvaEditor, EditorConfig } from 'canva-editor';
 import { data } from './sampleData';
-import {  useState } from 'react';
-import { EditorConfig } from 'canva-editor/components/editor/EditorContext';
+import { useState } from 'react';
 
 const editorConfig: EditorConfig = {
   apis: {
@@ -153,7 +152,7 @@ const editorConfig: EditorConfig = {
     searchText: 'Search texts',
     searchImage: 'Search images',
     searchShape: 'Search shapes',
-    searchFrame: 'Search frames'
+    searchFrame: 'Search frames',
   },
   editorAssetsUrl: 'http://localhost:4000/editor',
   imageKeywordSuggestions: 'animal,sport,love,scene,dog,cat,whale',
@@ -167,9 +166,8 @@ const Test = () => {
   const handleOnChanges = (changes: any) => {
     console.log('On changes');
     console.log(changes);
-    
+
     setSaving(true);
-    // Waiting for 1s (Fake calling API and wait for response)
     setTimeout(() => {
       setSaving(false);
     }, 1e3);
@@ -178,10 +176,8 @@ const Test = () => {
   const handleOnDesignNameChanges = (newName: string) => {
     console.log('On name changes');
     console.log(newName);
-    
-    setSaving(true);
 
-    // Waiting for 1s (Fake calling API and wait for response)
+    setSaving(true);
     setTimeout(() => {
       setSaving(false);
     }, 1e3);
