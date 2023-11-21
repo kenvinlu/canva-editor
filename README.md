@@ -6,6 +6,8 @@ Description
 
 This project is a React.js-based tool designed to provide functionality similar to Canva.com. It utilizes the Vite build tool and manages state with ProseMirror. The tool allows users to create and design content through an intuitive interface.
 
+![](./Screenshot.png)
+
 Installation
 ------------
 
@@ -13,15 +15,21 @@ Before you begin, ensure that you have [Node.js](https://nodejs.org/) and [Yarn]
 
 1.  Clone the repository:
     
-    `git clone https://github.com/lnkhanh/canva-editor.git`
+    ```sh
+    git clone https://github.com/kenvinlu/canva-editor.git
+    ```
     
 2.  Navigate to the project directory:
     
-    `cd canva-editor`
+    ```sh
+    cd canva-editor
+    ```
     
 3.  Install dependencies using Yarn:
     
-    `yarn install`
+    ```sh
+    yarn install
+    ```
     
 
 Configuration
@@ -215,13 +223,22 @@ These options provide a way to interact with the editor's state and behavior. In
 
 To start the development API server, run:
 
-`yarn api`
+```sh
+yarn api
+```
 
 To start the development server, run:
 
-`yarn dev`
+```sh
+yarn dev
+```
 
 This will launch the tool at [http://localhost:5173](http://localhost:5173).
+
+Contributing
+------------
+
+If you'd like to contribute to this project, please follow our [contribution guidelines](CONTRIBUTING.md).
 
 License
 -------
