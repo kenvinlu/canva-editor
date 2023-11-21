@@ -237,11 +237,6 @@ yarn dev
 
 This will launch the tool at [http://localhost:5173](http://localhost:5173).
 
-Contributing
-------------
-
-If you'd like to contribute to this project, please follow our [contribution guidelines](CONTRIBUTING.md).
-
 License
 -------
 
