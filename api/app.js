@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
 app.use(cors());
 
@@ -60,7 +61,7 @@ function searchKeywords(query, data) {
  */
 app.get('/api/draft-fonts', async (req, res) => {
   console.log(req.query);
-  fs.readFile('./json/draft-fonts.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/draft-fonts.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -86,7 +87,7 @@ app.get('/api/draft-fonts', async (req, res) => {
  * Get fonts
  */
 app.get('/api/fonts', async (req, res) => {
-  fs.readFile('./json/fonts.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/fonts.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -103,7 +104,7 @@ app.get('/api/fonts', async (req, res) => {
  * Search templates
  */
 app.get('/api/templates', async (req, res) => {
-  fs.readFile('./json/templates.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/templates.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -120,7 +121,7 @@ app.get('/api/templates', async (req, res) => {
  * Search template keywords
  */
 app.get('/api/template-suggestion', async (req, res) => {
-  fs.readFile('./json/templates.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/templates.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -135,7 +136,7 @@ app.get('/api/template-suggestion', async (req, res) => {
  * Search text templates
  */
 app.get('/api/texts', async (req, res) => {
-  fs.readFile('./json/texts.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/texts.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -152,7 +153,7 @@ app.get('/api/texts', async (req, res) => {
  * Search text keywords
  */
 app.get('/api/text-suggestion', async (req, res) => {
-  fs.readFile('./json/texts.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/texts.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -167,7 +168,7 @@ app.get('/api/text-suggestion', async (req, res) => {
  * Search frames
  */
 app.get('/api/frames', async (req, res) => {
-  fs.readFile('./json/frames.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/frames.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -184,7 +185,7 @@ app.get('/api/frames', async (req, res) => {
  * Search frame keywords
  */
 app.get('/api/frame-suggestion', async (req, res) => {
-  fs.readFile('./json/frames.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/frames.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -199,7 +200,7 @@ app.get('/api/frame-suggestion', async (req, res) => {
  * Search shapes
  */
 app.get('/api/shapes', async (req, res) => {
-  fs.readFile('./json/shapes.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/shapes.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -216,7 +217,7 @@ app.get('/api/shapes', async (req, res) => {
  * Search shape keywords
  */
 app.get('/api/shape-suggestion', async (req, res) => {
-  fs.readFile('./json/shapes.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/shapes.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -231,7 +232,7 @@ app.get('/api/shape-suggestion', async (req, res) => {
  * Search images
  */
 app.get('/api/images', async (req, res) => {
-  fs.readFile('./json/images.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/images.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
@@ -248,7 +249,7 @@ app.get('/api/images', async (req, res) => {
  * Search image keywords
  */
 app.get('/api/image-suggestion', async (req, res) => {
-  fs.readFile('./json/images.json', 'utf8', (err, jsonString) => {
+  fs.readFile(path.join(__dirname, './json/images.json'), 'utf8', (err, jsonString) => {
     if (err) {
       console.error(err);
       res.send(null);
