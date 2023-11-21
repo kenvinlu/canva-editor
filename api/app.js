@@ -6,7 +6,7 @@ app.use(cors());
 const fs = require('fs');
 
 app.listen(4000, () => {
-  console.log('Server has started! Open http://localhost:4000');
+  console.log('Server has started! Open https://canva-editor-api.vercel.app');
 });
 app.use(express.static(__dirname + '/public')); //Serves resources from public folder
 
