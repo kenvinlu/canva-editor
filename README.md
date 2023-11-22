@@ -13,6 +13,7 @@ This project is a React.js-based tool designed to provide functionality similar 
 
 Explore the live demo: [Try it out!](https://canva-editor-three.vercel.app)
 
+Get full source code here: https://kenvinlu.gumroad.com/l/canva-editor
 
 Installation
 ------------
