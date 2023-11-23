@@ -46,7 +46,7 @@ To customize the tool for your environment, please update the `editorConfig`.
 
 ```javascript
 export type EditorConfig = {
-  logoUrl: './your-logo.png',
+  logoUrl?: string;
   apis: {
     url: string;
     searchFonts: string;
@@ -141,6 +141,7 @@ import { data } from './sampleData';
 import { useState } from 'react';
 
 const editorConfig: EditorConfig = {
+  logoUrl: './your-logo.png',
   apis: {
     url: 'http://localhost:4000/api',
     searchFonts: '/fonts',
