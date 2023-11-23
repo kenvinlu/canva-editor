@@ -3,6 +3,7 @@ import { data } from './sampleData';
 import { useState } from 'react';
 
 const editorConfig: EditorConfig = {
+  // logoUrl: './your-logo.png',
   apis: {
     url: 'http://localhost:4000/api',
     searchFonts: '/fonts',

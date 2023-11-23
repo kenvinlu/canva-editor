@@ -46,6 +46,7 @@ To customize the tool for your environment, please update the `editorConfig`.
 
 ```javascript
 export type EditorConfig = {
+  logoUrl: './your-logo.png',
   apis: {
     url: string;
     searchFonts: string;
