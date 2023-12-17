@@ -944,10 +944,10 @@ camelize@^1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.1.tgz#89b7e16884056331a35d6b5ad064332c91daa6c3"
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
-canva-editor@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/canva-editor/-/canva-editor-1.0.5.tgz#3723bed5b96bf92721423110cf9811516761e6f5"
-  integrity sha512-uIB4U3roPvUKzJ6xxjIqZgrk89/IWCa/mP4A865QKRt8AWuwA8cbuUMrQwEBwSaseSPLHAXyqpAxGIQbKwshRA==
+canva-editor@^1.0.51:
+  version "1.0.51"
+  resolved "https://registry.yarnpkg.com/canva-editor/-/canva-editor-1.0.51.tgz#15e6ba532fc378fa3717656a3ecc9fccaf768efb"
+  integrity sha512-+ZTZx2zOILlfSW58mKZzcW6mgiwE4OhYr90JFfNEGX2XOuctGAnyNHDuL6A2yDBwYPdOKuLz4TOGL06CnESRDg==
   dependencies:
     "@emotion/css" "^11.11.2"
     "@emotion/react" "^11.11.1"
