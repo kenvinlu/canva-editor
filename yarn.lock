@@ -944,10 +944,10 @@ camelize@^1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.1.tgz#89b7e16884056331a35d6b5ad064332c91daa6c3"
   integrity sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==
 
-canva-editor@^1.0.54:
-  version "1.0.54"
-  resolved "https://registry.yarnpkg.com/canva-editor/-/canva-editor-1.0.54.tgz#ebf6eb40cd946f79db9ae6307a8fc5fa8f71159f"
-  integrity sha512-uCDjoUpYGvphnNhO5gK5+u8hjGNYWASZ1f/2aWvDZqZhecyQRvTgus7JIBKkMzej7zQoEDYhFjDDJPDUOopWZA==
+canva-editor@^1.0.55:
+  version "1.0.55"
+  resolved "https://registry.yarnpkg.com/canva-editor/-/canva-editor-1.0.55.tgz#bc7b6d45d38e0c339bdf2285da23313363db7d7d"
+  integrity sha512-qSYXMdGQBx7HwJcyejhJ1yP4//ZwQBohMD/pBCveiVCUzZKh0AivFTFD2vaQZjyYJ0DuLwXVuwJ4vRYTR14/lA==
   dependencies:
     "@emotion/css" "^11.11.2"
     "@emotion/react" "^11.11.1"
@@ -968,6 +968,7 @@ canva-editor@^1.0.54:
     prosemirror-state "^1.4.3"
     react-device-detect "^2.2.3"
     react-singleton-hook "^4.0.1"
+    svg-path-round-corners "^0.1.5"
     w3c-keyname "^2.2.8"
 
 chalk@^2.4.2:
@@ -2162,6 +2163,11 @@ supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   integrity sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==
+
+svg-path-round-corners@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/svg-path-round-corners/-/svg-path-round-corners-0.1.5.tgz#40b33efd184ca202b720304d0a7041d5909d10d5"
+  integrity sha512-IOEsGoDyaXJg7KG2W9xfPAOrBEzvqXLstyz3eClAEPxZAfaPsZ4Eo85DKYjL2hr5fmVKWcgiM3vBCEaROBCyFA==
 
 text-table@^0.2.0:
   version "0.2.0"

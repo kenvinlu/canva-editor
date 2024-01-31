@@ -15,7 +15,7 @@ Explore the live demo: [Try it out!](https://canva-editor-three.vercel.app)
 
 Get full source code here: https://kenvinlu.gumroad.com/l/canva-editor
 
-Support: [Discord](https://discord.gg/QQTJNJPZ)
+Support: [Discord](https://discord.gg/AT6XMDA9Fy)
 
 Installation
 ------------
