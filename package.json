@@ -17,6 +17,7 @@
   },
   "license": "MIT License with No Resale Clause",
   "keywords": [
+    "canva clone",
     "graphic design tool",
     "online design software",
     "react design app",
@@ -37,7 +38,7 @@
   "module": "src/index.jsx",
   "dependencies": {
     "@emotion/react": "^11.11.1",
-    "canva-editor": "^1.0.65",
+    "canva-editor": "^1.0.67",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.1"
