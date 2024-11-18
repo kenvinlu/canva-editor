@@ -62,8 +62,8 @@ export const data = [
                             "m": -55.5
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/christmas/002.jpg",
-                        "y": "http://localhost:4000/images/photos/christmas/006.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/christmas/002.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/christmas/006.jpg"
                     },
                     "ag": 1
                 },
@@ -274,8 +274,8 @@ export const data = [
                             "m": -125
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/animals/003.jpg",
-                        "y": "http://localhost:4000/images/photos/animals/003.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/animals/003.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/animals/003.jpg"
                     },
                     "ag": 1
                 },
@@ -311,8 +311,8 @@ export const data = [
                             "m": 0
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/christmas/002.jpg",
-                        "y": "http://localhost:4000/images/photos/christmas/009.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/christmas/002.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/christmas/009.jpg"
                     },
                     "ag": 1
                 },
@@ -348,8 +348,8 @@ export const data = [
                             "m": -59.5
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/christmas/002.jpg",
-                        "y": "http://localhost:4000/images/photos/christmas/002.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/christmas/002.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/christmas/002.jpg"
                     },
                     "ag": 1
                 },
@@ -385,8 +385,8 @@ export const data = [
                             "m": -38.099999999999994
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/christmas/005.jpg",
-                        "y": "http://localhost:4000/images/photos/christmas/005.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/christmas/005.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/christmas/005.jpg"
                     },
                     "ag": 1
                 },
@@ -422,8 +422,8 @@ export const data = [
                             "m": -59.30000000000001
                         },
                         "n": 0,
-                        "aj": "http://localhost:4000/images/photos/birthdays/004.jpg",
-                        "y": "http://localhost:4000/images/photos/birthdays/004.jpg"
+                        "aj": "https://canva-editor-api.vercel.app/images/photos/birthdays/004.jpg",
+                        "y": "https://canva-editor-api.vercel.app/images/photos/birthdays/004.jpg"
                     },
                     "ag": 1
                 },
