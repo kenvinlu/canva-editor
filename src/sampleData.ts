@@ -23,20 +23,20 @@ export const data = [
                 },
                 "r": false,
                 "s": [
-                    "ca_FUsRDxm",
-                    "ca_gQfMKsq",
-                    "ca_q7lY9Nd",
-                    "ca_gyP70R9",
-                    "ca_WdlRmq7",
-                    "ca_zhJBSbD",
-                    "ca_S9XvhU6",
-                    "ca_c356w5i",
-                    "ca_WYljDNY",
-                    "ca_yHg3m0g"
+                    "ca_s4ecDIn",
+                    "ca_9Ow2Hvf",
+                    "ca_kl1TKFU",
+                    "ca_cU05vVo",
+                    "ca_KvnT4OW",
+                    "ca_EctCt0B",
+                    "ca_pJYTj1h",
+                    "ca_BFSwuzn",
+                    "ca_yKC6Kuj",
+                    "ca_L1Z8CkF"
                 ],
                 "t": null
             },
-            "ca_FUsRDxm": {
+            "ca_s4ecDIn": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -71,45 +71,38 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_gQfMKsq": {
+            "ca_9Ow2Hvf": {
                 "e": {
                     "f": "TextLayer"
                 },
                 "g": {
                     "k": {
+                        "l": -83.57191194122225,
+                        "m": 161.0071123239585
+                    },
+                    "h": {
+                        "i": 1207.9447330820522,
+                        "j": 146,
                         "l": 68.12582109382848,
                         "m": 158.88000467155902
                     },
-                    "h": {
-                        "i": 805.9213867785503,
-                        "j": 237.47011404398754,
-                        "l": 212.81344289254488,
-                        "m": 441.67674400520934
-                    },
-                    "u": 3.7693668895871038,
+                    "u": 1,
                     "n": 0,
-                    "v": "<p style=\"text-align: center;font-family: 'Alumni Sans Pinstripe Regular';font-size: 45px;color: rgb(255, 255, 255);line-height: 1.4;letter-spacing: normal;\"><span style=\"color: rgb(255, 255, 255);\">Canva Editor</span></p>",
+                    "v": "<p style=\"text-align: center;font-family: 'Aboreto Regular';font-size: 104px;color: rgb(255, 255, 255);line-height: 1.4;letter-spacing: normal;\"><span style=\"color: rgb(255, 255, 255);\">Canva Editor</span></p>",
                     "w": [
                         {
-                            "x": "Alumni Sans Pinstripe",
-                            "a": "Alumni Sans Pinstripe Regular",
-                            "y": "http://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNNjOFFPq_AUJD1umyS30W-Xub8zD1ObhezZ7VIpcDA5w.woff2",
+                            "x": "Aboreto",
+                            "a": "Aboreto Regular",
+                            "y": "https://fonts.gstatic.com/s/aboreto/v2/5DCXAKLhwDDQ4N8blKHeA2yuxSY.woff2",
                             "z": "regular",
-                            "aa": [
-                                {
-                                    "x": "Alumni Sans Pinstripe",
-                                    "a": "Alumni Sans Pinstripe Italic",
-                                    "y": "http://fonts.gstatic.com/s/alumnisanspinstripe/v6/ZgNDjOFFPq_AUJD1umyS30W-Xub8zD1ObheDYL9Jh8XQ5_cY.woff2",
-                                    "z": "italic"
-                                }
-                            ]
+                            "aa": []
                         }
                     ],
                     "ab": [
                         "rgb(255, 255, 255)"
                     ],
                     "ac": [
-                        45
+                        104
                     ],
                     "ad": null,
                     "ag": 1
@@ -118,7 +111,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_q7lY9Nd": {
+            "ca_kl1TKFU": {
                 "e": {
                     "f": "ShapeLayer"
                 },
@@ -148,7 +141,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_gyP70R9": {
+            "ca_cU05vVo": {
                 "e": {
                     "f": "TextLayer"
                 },
@@ -194,7 +187,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_WdlRmq7": {
+            "ca_KvnT4OW": {
                 "e": {
                     "f": "GroupLayer"
                 },
@@ -213,12 +206,12 @@ export const data = [
                 },
                 "r": false,
                 "s": [
-                    "ca_UZkVpUR",
-                    "ca_NmkqB5N"
+                    "ca_sV1Ruxi",
+                    "ca_F4TlRGT"
                 ],
                 "t": "ROOT"
             },
-            "ca_UZkVpUR": {
+            "ca_sV1Ruxi": {
                 "e": {
                     "f": "ShapeLayer"
                 },
@@ -246,9 +239,9 @@ export const data = [
                 },
                 "r": false,
                 "s": [],
-                "t": "ca_WdlRmq7"
+                "t": "ca_KvnT4OW"
             },
-            "ca_NmkqB5N": {
+            "ca_F4TlRGT": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -281,9 +274,9 @@ export const data = [
                 },
                 "r": false,
                 "s": [],
-                "t": "ca_WdlRmq7"
+                "t": "ca_KvnT4OW"
             },
-            "ca_zhJBSbD": {
+            "ca_EctCt0B": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -320,7 +313,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_S9XvhU6": {
+            "ca_pJYTj1h": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -357,7 +350,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_c356w5i": {
+            "ca_BFSwuzn": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -394,7 +387,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_WYljDNY": {
+            "ca_yKC6Kuj": {
                 "e": {
                     "f": "FrameLayer"
                 },
@@ -431,7 +424,7 @@ export const data = [
                 "s": [],
                 "t": "ROOT"
             },
-            "ca_yHg3m0g": {
+            "ca_L1Z8CkF": {
                 "e": {
                     "f": "TextLayer"
                 },
