@@ -1,0 +1,127 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-button {
+    color: #fff;
+    height: 40px;
+    padding: 0 16px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: background-color .1s linear, border-color .1s linear, color .1s linear;
+}
+
+@media (max-width: 900px) {
+    .dropdown-button {
+        padding: 0;
+    }
+}
+
+.dropdown-button:hover {
+    background-color: hsla(0, 0%, 100%, .10);
+}
+
+.dropdown-button.is-active {
+    background-color: hsla(0, 0%, 100%, .15);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    padding: 8px 0;
+    width: 320px;
+    border-radius: 4px;
+    max-height: calc(100vh - 32px);
+    border: 1px solid #e3e6e9;
+}
+
+.menu-item>button {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 22px;
+    width: 100%;
+}
+
+.menu-item>button:disabled {
+    color: #b2b2b2;
+    cursor: not-allowed;
+}
+
+.menu-item>button>svg {
+    margin-right: 5px;
+}
+.menu-item>button p.hint {
+    display: none;
+    font-size: 12px;
+    margin-left: 5px;
+    font-family: 'Arial';
+}
+.menu-item:hover>button {
+    background-color: rgba(64, 87, 109, .07);
+}
+.menu-item:hover>button p.hint {
+    display: block;
+}
+.menu-divider {
+    height: 1px;
+    background-color: rgba(57, 76, 96, .15);
+    margin: 8px 0;
+}
+
+.menu-groupname {
+    margin: 8px 20px;
+    color: rgba(13, 18, 22, .7);
+    font-size: 12px;
+}
+
+.with-submenu {
+    position: relative;
+}
+
+.submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    width: 320px;
+    border-radius: 4px;
+    border: 1px solid #e3e6e9;
+    z-index: 1;
+}
+
+.with-submenu:hover .submenu {
+    display: block;
+}
+
+.menu-item.with-submenu>button .submenu-arrow {
+    margin-left: 4px;
+    font-size: 0.8em;
+    margin-left: auto;
+}
+/* For the rotated arrow icon when the submenu is open */
+.menu-item.with-submenu>button .submenu-arrow.open svg {
+    transform: rotate(90deg);
+  }
+.shortcut {
+    margin-left: auto;
+    color: #0d1216;
+    background-color: rgba(64, 87, 109, .07);
+    font-size: 0.8em;
+    padding: 0 8px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: inline-block;
+}

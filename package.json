@@ -1,0 +1,60 @@
+{
+  "name": "canva-editor-demo",
+  "private": false,
+  "version": "1.0.5",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "api": "cd api && yarn dev",
+    "build": "tsc && vite build",
+    "build-editor": "cd packages/editor & tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kenvinlu/canva-editor"
+  },
+  "license": "MIT License with No Resale Clause",
+  "keywords": [
+    "canva clone",
+    "graphic design tool",
+    "online design software",
+    "react design app",
+    "canva alternative",
+    "responsive design",
+    "drag-and-drop design",
+    "collaboration in design",
+    "user-friendly design tool",
+    "seo-friendly design",
+    "social media graphics tool",
+    "javascript design tool",
+    "canva-like editor",
+    "canva-inspired design",
+    "canva-style graphics",
+    "canva alternative for react"
+  ],
+  "main": "src/index.jsx",
+  "module": "src/index.jsx",
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "canva-editor": "^1.0.71",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^6.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.2",
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.0.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.3"
+  }
+}

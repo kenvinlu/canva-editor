@@ -1,4 +1,3 @@
-
 ## **ANNOUNCEMENT: Canva Library Merging with LidoJS**
 
 Dear Canva users,

@@ -1,0 +1,51 @@
+/* HorizontalCarousel.css */
+.horizontal-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
+    scrollbar-width: thin;
+    /* Firefox */
+    scrollbar-color: transparent transparent;
+    /* Firefox */
+    overflow-y: hidden;
+    word-break: normal;
+}
+
+.carousel-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+.carousel-item {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 0;
+    background: linear-gradient(to right, #fff, rgb(255 255 255 / 50%));
+}
+
+.arrow.right {
+    right: 0;
+    background: linear-gradient(to right, rgb(255 255 255 / 70%), #fff);
+}
