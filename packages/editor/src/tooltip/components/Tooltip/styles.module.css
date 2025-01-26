@@ -1,0 +1,58 @@
+.tooltip {
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 90%;
+  width: max-content;
+}
+
+.arrow {
+  width: 8px;
+  height: 8px;
+}
+
+[class*='react-tooltip__place-top'] > .arrow {
+  transform: rotate(45deg);
+}
+
+[class*='react-tooltip__place-right'] > .arrow {
+  transform: rotate(135deg);
+}
+
+[class*='react-tooltip__place-bottom'] > .arrow {
+  transform: rotate(225deg);
+}
+
+[class*='react-tooltip__place-left'] > .arrow {
+  transform: rotate(315deg);
+}
+
+/** Types variant **/
+.dark {
+  background: #222;
+  color: #fff;
+}
+
+.light {
+  background-color: #fff;
+  color: #222;
+}
+
+.success {
+  background-color: #8dc572;
+  color: #fff;
+}
+
+.warning {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+
+.error {
+  background-color: #be6464;
+  color: #fff;
+}
+
+.info {
+  background-color: #337ab7;
+  color: #fff;
+}
