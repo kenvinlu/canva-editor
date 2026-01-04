@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2021",
+    "module": "esnext",
+    "lib": ["es2021", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "paths": {
+      "@canva-web/*": ["./apps/canva-web/*"],
+      // "canva-editor": ["./dist/libs/canva-editor/index.js"]
+      // "canva-editor": ["./dist/libs/canva-editor/index.js"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

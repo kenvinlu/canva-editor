@@ -1,0 +1,16 @@
+.unsplash-grid {
+  display: flex;
+  margin-left: -10px;
+  width: auto;
+}
+
+.unsplash-grid_column {
+  padding-left: 10px;
+  background-clip: padding-box;
+}
+
+@media only screen and (max-width: 700px) {
+  .unsplash-grid_column {
+    padding-left: 0;
+  }
+}

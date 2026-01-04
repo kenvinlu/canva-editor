@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npx nx build canva-web --prod",
+  "framework": "nextjs",
+  "outputDirectory": "apps/canva-web/.next",
+  "installCommand": "pnpm install --frozen-lockfile && pnpm install --filter canva-editor --frozen-lockfile",
+  "env": {
+    "NX_DAEMON": "false",
+    "NX_VERBOSE_LOGGING": "false"
+  }
+}

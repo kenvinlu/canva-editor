@@ -1,0 +1,4 @@
+packages:
+  - '!apps/canva-admin'
+  - 'apps/*'
+  - 'libs/*'

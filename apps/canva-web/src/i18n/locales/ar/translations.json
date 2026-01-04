@@ -1,0 +1,14 @@
+{
+  "common": {
+    "greeting":"היי! {firstName} {lastName}",
+    "menu": "תפריט",
+    "login": "כניסת משתמש",
+    "change_language": "החלפת שפה",
+    "home": "בית",
+    "special": "מבצעים",
+    "all_products": "כל המוצרים",
+    "my_lists": "הרשימות שלי",
+    "cart": "עגלה",
+    "departments": "מחלקות"
+  }
+}

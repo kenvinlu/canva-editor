@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["esnext", "dom"],
+    "module": "commonjs",
+    "types": ["node"],
+    "rootDir": "./",
+    "experimentalDecorators": true,
+  },
+  "include": ["src/**/*.ts"]
+}

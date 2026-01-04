@@ -1,0 +1,14 @@
+{
+  "common":{
+    "greeting": "Hi! {firstName} {lastName}",
+    "menu": "Menu",
+    "login": "Login",
+    "change_language": "Change Language",
+    "home": "Home",
+    "special": "Special",
+    "all_products": "All Products",
+    "my_lists": "My Lists",
+    "cart": "Cart",
+    "departments": "Departments"
+  }
+}

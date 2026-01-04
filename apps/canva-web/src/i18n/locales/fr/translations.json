@@ -1,0 +1,14 @@
+{
+  "common":{
+    "greeting": "Hola! {firstName} {lastName}",
+    "menu": "Menú",
+    "login": "Iniciar sesión",
+    "change_language": "Cambiar idioma",
+    "home": "Inicio",
+    "special": "Especiales",
+    "all_products": "Productos",
+    "my_lists": "Mis listas",
+    "cart": "Carrito",
+    "departments": "Departamentos"
+  }
+}

@@ -1,0 +1,43 @@
+.card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cardBackground {
+    --tw-gradient-from: #0f172a;
+    --tw-gradient-to: rgba(15, 23, 42, 0);
+    --tw-gradient-stops: var(--tw-gradient-from), #3d4450;
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -10;
+    contain: layout;
+    overflow: hidden;
+    border-radius: 0.75rem; /* Matches className="rounded-xl" */
+  }
+  
+  .cardBackgroundImage {
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(40px);
+    will-change: transform, filter;
+    pointer-events: none;
+  }
+  
+  .heading {
+    color: #fff;
+    font-size: 3rem;
+  }
+  
+  .subHeading {
+    color: rgb(148, 163, 184);
+  }
+  
+  .underline {
+    color: var(--primary-color);
+  }

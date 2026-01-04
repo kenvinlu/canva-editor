@@ -1,0 +1,33 @@
+{
+  "name": "canva-web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/canva-web/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project canva-web --web",
+  "targets": {
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{options.outputPath}"],
+      "dependsOn": ["^build"],
+      "options": {
+        "outputPath": "dist/apps/canva-web",
+        "debugPrerender": true
+      }
+    },
+    "serve": {
+      "executor": "@nx/next:server",
+      "options": {
+        "buildTarget": "canva-web:build",
+        "dev": true,
+        "port": 3001,
+        "turbo": true
+      },
+      "configurations": {
+        "production": {
+          "dev": false
+        }
+      }
+    }
+  }
+}

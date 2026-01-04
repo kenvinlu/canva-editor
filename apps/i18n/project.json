@@ -1,0 +1,89 @@
+{
+  "name": "i18n",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/i18n/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/i18n/src/main.ts",
+        "tsConfig": "apps/i18n/tsconfig.app.json",
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "i18n:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "i18n:build:development"
+        },
+        "production": {
+          "buildTarget": "i18n:build:production"
+        }
+      }
+    },
+    "gen.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "cross-env NODE_ENV=en node dist/apps/i18n/src/main.js",
+          "cross-env NODE_ENV=vi node dist/apps/i18n/src/main.js"
+        ],
+        "parallel": false
+      },
+      "dependsOn": ["build"]
+    },
+    "gen.en": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env NODE_ENV=en node dist/apps/i18n/src/main.js"
+      },
+      "dependsOn": ["build"]
+    },
+    "gen.he": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env NODE_ENV=he node dist/apps/i18n/src/main.js"
+      },
+      "dependsOn": ["build"]
+    },
+    "gen.es": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cross-env NODE_ENV=es node dist/apps/i18n/src/main.js"
+      },
+      "dependsOn": ["build"]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+.tabs_wrapper {
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.tabs_container {
+  padding: 8px;
+  flex: 1;
+  height: 95%;
+}
+
+.tabs_buttons {
+  padding: 8px 8px 0 8px;
+}
+
+.tab {
+  padding: 8px;
+  border: 0px;
+  border-radius: 4px;
+}
+
+.tab_selected {
+  background-color: #284957;
+  color: #fff
+}

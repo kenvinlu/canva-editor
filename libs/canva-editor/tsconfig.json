@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["esnext", "ES2021.String", "DOM", "DOM.Iterable"],
+    "types": ["react", "react-dom"],
+    "module": "esnext",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "jsxImportSource": "@emotion/react",
+    
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    
+    /* Linting */
+    "noImplicitAny": false, // TODO: Fix later
+    "strict": false, // TODO: Fix later
+    "allowJs": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "rootDir": ".",
+    "paths": {
+      "canva-editor": ["src"],
+      "canva-editor/*": ["src/*"]
+    }
+  },
+  "include": ["**/*.d.ts", "src/**/*.ts", "src/**/*.tsx", "vite.config.ts", "types.d.ts"],
+  "exclude": ["node_modules", "dist"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
