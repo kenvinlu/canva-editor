@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-images",
+      "handler": "image.findImages",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

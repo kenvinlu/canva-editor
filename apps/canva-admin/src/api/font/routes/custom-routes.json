@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-fonts",
+      "handler": "font.findFonts",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

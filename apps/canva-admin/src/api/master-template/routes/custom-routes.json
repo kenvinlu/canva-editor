@@ -1,0 +1,31 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-templates",
+      "handler": "master-template.findMasterTemplates",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/master-templates/:documentId",
+      "handler": "master-template.findMasterTemplateByDocumentId",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/master-templates/:documentId/vote-count",
+      "handler": "master-template.updateVoteCount",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

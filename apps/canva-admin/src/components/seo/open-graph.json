@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_seo_open_graphs",
+  "info": {
+    "displayName": "OpenGraph",
+    "icon": "search"
+  },
+  "options": {},
+  "attributes": {
+    "ogTitle": {
+      "type": "string",
+      "required": true
+    },
+    "ogDescription": {
+      "type": "string",
+      "maxLength": 200,
+      "required": true
+    },
+    "ogImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ogUrl": {
+      "type": "string",
+      "required": false
+    },
+    "ogType": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "config": {}
+}

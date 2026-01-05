@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "master_templates",
+  "info": {
+    "singularName": "master-template",
+    "pluralName": "master-templates",
+    "displayName": "Master Template",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "data": {
+      "type": "json",
+      "required": true
+    },
+    "desc": {
+      "type": "text"
+    },
+    "pages": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
+    },
+    "refId": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "templates"
+    },
+    "vote": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

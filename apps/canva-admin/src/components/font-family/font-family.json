@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_font_family_font_families",
+  "info": {
+    "displayName": "Font Family"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "style": {
+      "type": "string"
+    },
+    "url": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}

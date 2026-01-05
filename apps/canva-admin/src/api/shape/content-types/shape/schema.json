@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shapes",
+  "info": {
+    "singularName": "shape",
+    "pluralName": "shapes",
+    "displayName": "Shape",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "clipPath": {
+      "type": "text",
+      "required": true
+    },
+    "width": {
+      "type": "decimal",
+      "required": true
+    },
+    "height": {
+      "type": "decimal",
+      "required": true
+    },
+    "desc": {
+      "type": "text"
+    },
+    "background": {
+      "type": "string",
+      "required": true
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}

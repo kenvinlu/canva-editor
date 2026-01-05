@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/auth/gmail",
+      "handler": "gmail-auth.getAuthUrl",
+      "config": {
+        "policies": [],
+        "middlewares": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/auth/gmail/callback",
+      "handler": "gmail-auth.callback",
+      "config": {
+        "policies": [],
+        "middlewares": []
+      }
+    }
+  ]
+}

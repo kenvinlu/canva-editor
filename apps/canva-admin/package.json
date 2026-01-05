@@ -1,0 +1,54 @@
+{
+  "name": "canva-admin",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi",
+    "deploy": "strapi deploy"
+  },
+  "dependencies": {
+    "@_sh/strapi-plugin-ckeditor": "^6.0.3",
+    "@strapi/plugin-seo": "^2.0.8",
+    "@strapi/plugin-users-permissions": "5.31.2",
+    "@strapi/provider-email-nodemailer": "^5.31.2",
+    "@strapi/provider-upload-cloudinary": "^5.31.2",
+    "@strapi/strapi": "5.31.2",
+    "@strapi/typescript-utils": "^5.31.2",
+    "@strapi/utils": "^5.31.2",
+    "axios": "^1.10.0",
+    "@strapi/provider-email-mailer-api": "file:providers/strapi-provider-email-mailer-api",
+    "ckeditor5": "^45.2.1",
+    "date-fns": "^2.30.0",
+    "googleapis": "^149.0.0",
+    "koa": "^3.0.0",
+    "pg": "^8.15.6",
+    "raw-body": "^3.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.2",
+    "sharp": "^0.34.2",
+    "strapi-plugin-comments": "^3.1.1",
+    "strapi-plugin-preview-button": "^3.0.2",
+    "stripe": "^18.4.0",
+    "styled-components": "^6.0.0",
+    "time2fa": "^1.4.2"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "01cfad35-3ab6-45c4-849a-4a64586d5916"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "~5.7.2"
+  }
+}

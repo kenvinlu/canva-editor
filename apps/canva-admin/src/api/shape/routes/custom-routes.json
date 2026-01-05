@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-shapes",
+      "handler": "shape.findShapes",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

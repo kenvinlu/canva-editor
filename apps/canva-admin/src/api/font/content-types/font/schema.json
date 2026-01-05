@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fonts",
+  "info": {
+    "singularName": "font",
+    "pluralName": "fonts",
+    "displayName": "Font"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "family": {
+      "type": "string",
+      "required": true
+    },
+    "styles": {
+      "type": "component",
+      "component": "font-family.font-family",
+      "repeatable": true,
+      "required": true
+    }
+  }
+}

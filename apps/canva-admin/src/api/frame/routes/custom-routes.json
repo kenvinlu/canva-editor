@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-frames",
+      "handler": "frame.findFrames",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

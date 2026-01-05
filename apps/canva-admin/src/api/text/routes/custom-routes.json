@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/search-texts",
+      "handler": "text.findTexts",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

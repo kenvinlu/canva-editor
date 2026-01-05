@@ -1,0 +1,70 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/projects/search",
+      "handler": "project.findProjects",
+      "config": {
+        "policies": [],
+        "find": {
+          "auth": false
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/projects/my-projects",
+      "handler": "project.findMyProjects",
+      "config": {
+        "policies": [],
+        "findMyProjects": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/projects/:documentId",
+      "handler": "project.findUserProjectByDocumentId",
+      "config": {
+        "policies": [],
+        "findUserProjectByDocumentId": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/create",
+      "handler": "project.create",
+      "config": {
+        "policies": [],
+        "createProject": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/projects/:id",
+      "handler": "project.findUserProjectById",
+      "config": {
+        "policies": [],
+        "findUserProjectById": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/projects/:id",
+      "handler": "project.updateUserProjectById",
+      "config": {
+        "policies": [],
+        "updateUserProjectById": {
+          "auth": true
+        }
+      }
+    }
+  ]
+}

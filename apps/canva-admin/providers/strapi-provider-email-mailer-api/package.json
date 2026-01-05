@@ -1,0 +1,17 @@
+{
+  "name": "@strapi/provider-email-mailer-api",
+  "version": "1.0.0",
+  "description": "Custom mailer API provider for Strapi",
+  "main": "index.js",
+  "keywords": [
+    "strapi",
+    "email",
+    "provider"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "axios": "^1.10.0"
+  }
+}
+
