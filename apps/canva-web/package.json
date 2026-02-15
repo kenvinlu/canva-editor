@@ -31,6 +31,7 @@
     "@typescript-eslint/eslint-plugin": "8.33.0",
     "@typescript-eslint/parser": "8.33.0",
     "@vitejs/plugin-react": "4.5.0",
+    "canva-editor": "^1.0.72",
     "class-variance-authority": "0.7.1",
     "classnames": "2.5.1",
     "clsx": "2.1.1",
