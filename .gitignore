@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+.nx
+.vercel
+.claude
+.next
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
