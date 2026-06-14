@@ -1,0 +1,22 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/article/:slug",
+      "handler": "article.findArticleBySlug",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/search-articles",
+      "handler": "article.findArticles",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}

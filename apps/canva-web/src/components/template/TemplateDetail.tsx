@@ -1,14 +1,15 @@
 'use client';
 import React, { useState } from 'react';
-import { CalendarClock, ImageIcon } from 'lucide-react';
+import { ImageIcon } from 'lucide-react';
 import { Template } from '../../models/template.model';
 import { ImageLarge } from '../base/image';
 import { createProject } from '../../services/project.service';
 import { useUserStore } from '@canva-web/src/store/useUserStore';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@canva-web/src/i18n/navigation';
 import TemplateDialogCard from './TemplateDialogCard';
 import { getBestImageFormat } from '@canva-web/src/utils/image';
 import { Button } from '../base/button/Button';
+import { useTranslations } from 'next-intl';
 
 const TemplateDetail: React.FC<{
   template: Template;
@@ -17,6 +18,7 @@ const TemplateDetail: React.FC<{
   const user = useUserStore((state) => state.userData);
   const [isCreatingProject, setIsCreatingProject] = useState(false);
   const router = useRouter();
+  const t = useTranslations('common');
   const image = getBestImageFormat(template.img);
   const imageProps: {
     src: string;
@@ -66,7 +68,7 @@ const TemplateDetail: React.FC<{
           <div className="flex flex-col justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.16em] text-primary">
-                Template
+                {t('template')}
               </p>
               <h2 className="mt-1 text-xl font-semibold leading-snug text-foreground md:text-2xl">
                 {template.desc}
@@ -87,8 +89,7 @@ const TemplateDetail: React.FC<{
 
             <div className="space-y-3 text-sm text-muted-foreground">
               <p>
-                Start from this professionally designed layout and customize colors, text, images,
-                and more using the editor in just a few clicks.
+                {t('templateDetailDescription')}
               </p>
               {/* <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="text-xs text-muted-foreground">
@@ -103,7 +104,7 @@ const TemplateDetail: React.FC<{
                 disabled={isCreatingProject}
                 data-testid="template-customize-button"
               >
-                {isCreatingProject ? 'Creating project…' : 'Customize this template'}
+                {isCreatingProject ? t('creatingProject') : t('customizeTemplate')}
               </Button>
             </div>
           </div>
@@ -112,7 +113,7 @@ const TemplateDetail: React.FC<{
       {recentTemplates.length > 0 && (
         <>
           <h2 className="text-2xl font-bold text-gray-800 mt-16 mb-4">
-            Other templates you might like
+            {t('otherTemplatesYouMightLike')}
           </h2>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {recentTemplates.map((template) => (

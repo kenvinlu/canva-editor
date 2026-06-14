@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webhook_logs",
+  "info": {
+    "singularName": "webhook-log",
+    "pluralName": "webhook-logs",
+    "displayName": "Webhook Log",
+    "description": "Logs for incoming webhooks from payment providers"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "provider": {
+      "type": "enumeration",
+      "enum": ["gumroad", "stripe", "other"],
+      "required": true
+    },
+    "event_type": {
+      "type": "string",
+      "required": true
+    },
+    "payload": {
+      "type": "json",
+      "required": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["success", "failed", "processing"],
+      "default": "processing",
+      "required": true
+    },
+    "error_message": {
+      "type": "text"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "user_id": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "your_uploads",
+  "info": {
+    "singularName": "your-upload",
+    "pluralName": "your-uploads",
+    "displayName": "Your Upload"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "your_uploads"
+    },
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    }
+  }
+}

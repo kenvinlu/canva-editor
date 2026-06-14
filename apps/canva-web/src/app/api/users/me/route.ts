@@ -4,6 +4,11 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function GET(req: NextRequest) {
   try {
     const result = await doRequest();
+    if (!result || result.error) {
+      return NextResponse.json(null, {
+        status: 401,
+      });
+    }
     return Response.json(result);
   } catch (error) {
     console.error('Get current user error:', error);

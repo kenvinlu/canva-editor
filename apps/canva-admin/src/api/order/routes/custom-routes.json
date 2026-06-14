@@ -1,0 +1,22 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/orders/gumroad-webhook",
+        "handler": "order.handleGumroadWebhook",
+        "config": {
+          "policies": [],
+          "auth": false
+        }
+      },
+      {
+        "method": "GET",
+        "path": "/orders/:id/download",
+        "handler": "order.download",
+        "config": {
+          "policies": []
+        }
+      }
+    ]
+  }
+  

@@ -1,0 +1,31 @@
+import { IUser } from "../../interfaces/user";
+
+export const User: IUser = {
+    inbox: 'Inbox',
+    allMessages: 'All',
+    unreadMessages: 'Unread',
+    readMessages: 'Read',
+    refreshMessages: 'Refresh',
+    reply: 'Reply',
+    send: 'Send',
+    delete: 'Delete',
+    markAsRead: 'Mark as Read',
+    markAsUnread: 'Mark as Unread',
+    selectMessages: 'Select a messages',
+    noMessagesDescription: 'Choose a message from the list to view its details',
+    loadingMessage: 'Loading messages...',
+    typeYourReply: 'Type your reply...',
+    pressCtrlCmdEnterToSend: 'Press Ctrl/Cmd + Enter to send',
+    sending: 'Sending...',
+    sendMessage: 'Send Message',
+    message: 'Message',
+    sendMessagePlaceholder: 'Enter message subject',
+    typeYourMessageToAdminPlaceholder: 'Type your message to admin...',
+    messages: {
+        pleaseFillInAllFields: 'Please fill in all fields',
+        messageSentSuccessfully: 'Message sent successfully!',
+        failedToSendMessage: 'Failed to send message. Please try again.',
+    },
+    messageSubjectPlaceholder: 'Message Subject',
+    enterMessageSubjectPlaceholder: 'Enter message subject',
+}

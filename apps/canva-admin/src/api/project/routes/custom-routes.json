@@ -65,6 +65,17 @@
           "auth": true
         }
       }
+    },
+    {
+      "method": "DELETE",
+      "path": "/projects/:id",
+      "handler": "project.deleteUserProject",
+      "config": {
+        "policies": [],
+        "deleteUserProject": {
+          "auth": true
+        }
+      }
     }
   ]
 }

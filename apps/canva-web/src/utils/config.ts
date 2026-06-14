@@ -4,9 +4,9 @@ import {
   getSecretCookiePassword,
   getNodeEnv,
   getGoogleOneTapClientId,
-  getStripeSecretKey,
-  getStripePublishableKey,
+  getGoogleAnalyticsId,
   getNextApiUrl,
+  getUnsplashAccessKey,
 } from '@canva-web/config/Env';
 
 const serverRuntimeConfig = {
@@ -19,8 +19,8 @@ const publicRuntimeConfig = {
   nextApiUrl: getNextApiUrl(),
   defaultLocale: getDefaultLocale(),
   googleOneTapClientId: getGoogleOneTapClientId(),
-  stripeSecretKey: getStripeSecretKey(),
-  stripePublishableKey: getStripePublishableKey(),
+  measurementId: getGoogleAnalyticsId(),
+  unsplashAccessKey: getUnsplashAccessKey(),
 };
 
 export const {
@@ -30,7 +30,8 @@ export const {
   defaultLocale,
   nodeEnv,
   googleOneTapClientId,
-  stripePublishableKey,
+  measurementId,
+  unsplashAccessKey
 } = {
   ...serverRuntimeConfig,
   ...publicRuntimeConfig,

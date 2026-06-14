@@ -1,5 +1,5 @@
 import { IConfigApp } from '../constraint';
-import { Authentication, Common, Footer, Header, Blog, Editor, Home } from '../modules/en';
+import { Authentication, Common, Footer, Header, Blog, Editor, Home, User, SEO } from '../modules/en';
 
 const config: IConfigApp = {
   home: Home,
@@ -9,6 +9,8 @@ const config: IConfigApp = {
   auth: Authentication,
   blog: Blog,
   editor: Editor,
+  user: User,
+  seo: SEO,
 };
 
 module.exports = config;

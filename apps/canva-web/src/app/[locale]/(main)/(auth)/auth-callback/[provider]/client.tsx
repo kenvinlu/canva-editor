@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@canva-web/src/i18n/navigation';
 import { userLogInProvider } from '@canva-web/src/services/auth.service';
 import { useTranslations } from 'next-intl';
 import PageTransition from '@canva-web/src/components/PageTransition';

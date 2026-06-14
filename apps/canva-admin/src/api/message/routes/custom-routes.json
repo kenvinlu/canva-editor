@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/messages/:id/reply",
+      "handler": "message.addReply",
+      "config": {
+        "policies": [],
+        "middlewares": []
+      }
+    }
+  ]
+}
+

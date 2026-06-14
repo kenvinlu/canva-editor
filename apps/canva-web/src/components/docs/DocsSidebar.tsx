@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@canva-web/src/i18n/navigation';
 import { ChevronDown, ChevronRight, Book } from 'lucide-react';
 
 interface Doc {

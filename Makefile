@@ -92,38 +92,3 @@ drop_db:
 	else \
 		echo "Operation cancelled."; \
 	fi
-
-compress_publish:
-	zip -r canva-clone-publish.zip . \
-        -x "node_modules/*" \
-        -x "apps/canva-admin/*" \
-        -x "apps/canva-web/node_modules/*" \
-        -x "apps/canva-web/.next/*" \
-        -x "apps/canva-web/src/app/\[locale\]/\(main\)/inbox/*" \
-        -x "apps/canva-web/src/app/\[locale\]/\(main\)/pricing/*" \
-        -x "apps/canva-web/src/app/\[locale\]/\(main\)/product/*" \
-        -x "apps/canva-web/src/app/api/orders/*" \
-        -x "apps/canva-web/src/app/api/messages/*" \
-        -x "apps/canva-web/src/app/api/ecom/*" \
-        -x "apps/canva-web/src/app/api/docs/*" \
-        -x "apps/canva-web/src/components/inbox/*" \
-        -x "apps/canva-web/src/components/pricing/*" \
-        -x "libs/canva-editor/node_modules/*" \
-        -x "libs/canva-editor/dist/*" \
-        -x "libs/canva-editor/src/components/editor/actions.ts" \
-        -x "libs/canva-editor/src/components/editor/CanvaEditor.tsx" \
-        -x "libs/canva-editor/src/components/editor/DesignFrame.tsx" \
-        -x "libs/canva-editor/src/components/editor/DesignPage.tsx" \
-        -x "libs/canva-editor/src/components/editor/EditorContext.tsx" \
-        -x "libs/canva-editor/src/components/editor/Page.tsx" \
-        -x "libs/canva-editor/src/components/editor/Preview.tsx" \
-        -x "libs/canva-editor/src/components/editor/query.tsx" \
-        -x "libs/canva-editor/src/components/editor/resolvers.ts" \
-        -x ".env" \
-        -x "dist/*" \
-        -x "*.log" \
-        -x "tmp/*" \
-        -x ".git/*" \
-        -x ".claude/*" \
-        -x ".nx/*" \
-        -x ".vercel/*"

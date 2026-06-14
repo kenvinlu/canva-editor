@@ -1,5 +1,6 @@
 import type { AbstractIntlMessages } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
+import { hasLocale } from 'next-intl';
 
 export const defaultLocale = 'en' as const;
 export const RTL_LANGUAGES = ['ar', 'he'] as const;
@@ -32,11 +33,10 @@ async function loadLocaleMessages(
 }
 
 export default getRequestConfig(async ({ requestLocale }) => {
-  const requestedLocale = (await requestLocale) || defaultLocale;
-  
-  // Validate and normalize locale to ensure it's supported
-  const locale = isSupportedLocale(requestedLocale)
-    ? requestedLocale
+  // Typically corresponds to the `[locale]` segment
+  const requested = await requestLocale;
+  const locale = hasLocale(supportedLocales, requested)
+    ? requested
     : defaultLocale;
 
   try {

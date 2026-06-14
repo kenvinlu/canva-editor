@@ -36,6 +36,7 @@ export default [
         'http://127.0.0.1:3001',
         'https://localhost:3000',
         'https://localhost:3001',
+        'https://www.canvaclone.com',
         // Add your production domains here
         // 'https://yourdomain.com',
         // 'https://www.yourdomain.com',

@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/webhook-logs/create-and-trigger",
+      "handler": "webhook-log.createAndTrigger",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}
+

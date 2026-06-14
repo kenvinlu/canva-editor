@@ -1,6 +1,6 @@
 'use client';
 
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { Button } from './base/button/Button';
 import { ExternalLink, Github } from 'lucide-react';
 import { getGithubUrl } from '@canva-web/config/Env';

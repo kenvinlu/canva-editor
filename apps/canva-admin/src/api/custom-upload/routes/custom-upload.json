@@ -1,0 +1,14 @@
+{
+    "routes": [
+      {
+        "method": "POST",
+        "path": "/upload",
+        "handler": "custom-upload.upload",
+        "config": {
+          "policies": [],
+          "middlewares": []
+        }
+      }
+    ]
+  }
+  

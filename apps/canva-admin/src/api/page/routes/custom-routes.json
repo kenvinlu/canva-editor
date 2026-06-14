@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/page/:slug",
+      "handler": "page.findPageBySlug",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}
+

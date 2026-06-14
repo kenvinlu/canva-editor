@@ -1,0 +1,31 @@
+import { IUser } from "../../interfaces/user";
+
+export const User: IUser = {
+    inbox: 'Hộp thư',
+    allMessages: 'Tất cả',
+    unreadMessages: 'Chưa đọc',
+    readMessages: 'Đã đọc',
+    refreshMessages: 'Làm mới',
+    reply: 'Trả lời',
+    send: 'Gửi',
+    delete: 'Xóa',
+    markAsRead: 'Đánh dấu đã đọc',
+    markAsUnread: 'Đánh dấu chưa đọc',
+    selectMessages: 'Chọn một tin nhắn',
+    noMessagesDescription: 'Chọn một tin nhắn từ danh sách để xem chi tiết',
+    loadingMessage: 'Đang tải tin nhắn...',
+    typeYourReply: 'Nhập tin nhắn...',
+    pressCtrlCmdEnterToSend: 'Nhấn Ctrl/Cmd + Enter để gửi',
+    sending: 'Đang gửi...',
+    sendMessage: 'Gửi tin nhắn',
+    message: 'Tin nhắn',
+    sendMessagePlaceholder: 'Nhập chủ đề tin nhắn',
+    typeYourMessageToAdminPlaceholder: 'Nhập tin nhắn đến admin...',
+    messageSubjectPlaceholder: 'Chủ đề tin nhắn',
+    enterMessageSubjectPlaceholder: 'Nhập chủ đề tin nhắn',
+    messages: {
+        pleaseFillInAllFields: 'Vui lòng điền đầy đủ các trường',
+        messageSentSuccessfully: 'Tin nhắn đã được gửi thành công!',
+        failedToSendMessage: 'Lỗi khi gửi tin nhắn. Vui lòng thử lại.',
+    },
+}

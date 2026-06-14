@@ -1,14 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { cn } from '../utils';
-
-interface Configuration {
-  top_message?: string;
-  top_message_enabled?: boolean;
-  top_message_type?: 'info' | 'success' | 'warning' | 'error';
-}
+import { useConfigurationStore } from '../store/useConfigurationStore';
 
 const messageTypeStyles = {
   info: 'bg-blue-500 text-white',
@@ -20,56 +15,46 @@ const messageTypeStyles = {
 const SESSION_STORAGE_KEY = 'top_message_dismissed';
 
 export function TopMessage() {
-  const [config, setConfig] = useState<Configuration | null>(null);
   const [isVisible, setIsVisible] = useState(true);
+  // Select individual values directly to avoid creating new objects on each render
+  const topMessage = useConfigurationStore((state) => state.topMessage);
+  const topMessageEnabled = useConfigurationStore((state) => state.topMessageEnabled);
+  const topMessageType = useConfigurationStore((state) => state.topMessageType);
 
   useEffect(() => {
-    const fetchConfiguration = async () => {
-      try {
-        const response = await fetch('/api/configuration');
-        const result = await response.json();
-        
-        if (result.data) {
-          setConfig(result.data);
-          
-          // Check if this specific message was dismissed in this session
-          if (result.data.top_message) {
-            const dismissedMessage = sessionStorage.getItem(SESSION_STORAGE_KEY);
-            // If the message content matches the dismissed one, hide it
-            // This way, if the admin changes the message, it will show again
-            if (dismissedMessage === result.data.top_message) {
-              setIsVisible(false);
-            }
-          }
-        }
-      } catch (error) {
-        console.error('Failed to fetch configuration:', error);
+    // Check if this specific message was dismissed in this session
+    if (topMessage) {
+      const dismissedMessage = sessionStorage.getItem(SESSION_STORAGE_KEY);
+      // If the message content matches the dismissed one, hide it
+      // This way, if the admin changes the message, it will show again
+      if (dismissedMessage === topMessage) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
       }
-    };
-
-    fetchConfiguration();
-  }, []);
+    }
+  }, [topMessage]);
 
   const handleClose = () => {
-    if (config?.top_message) {
+    if (topMessage) {
       // Store the message content in sessionStorage
-      sessionStorage.setItem(SESSION_STORAGE_KEY, config.top_message);
+      sessionStorage.setItem(SESSION_STORAGE_KEY, topMessage);
       setIsVisible(false);
     }
   };
 
   // Don't render if message is disabled, empty, or user dismissed it
-  if (!config?.top_message_enabled || !config?.top_message || !isVisible) {
+  if (!topMessageEnabled || !topMessage || !isVisible) {
     return null;
   }
 
-  const messageType = config.top_message_type || 'info';
+  const messageType = (topMessageType || 'info') as 'info' | 'success' | 'warning' | 'error';
   const bgColor = messageTypeStyles[messageType];
 
   return (
     <div className={cn('w-full text-center py-1 px-4 relative', bgColor)}>
       <div className="mx-auto flex items-center justify-center">
-        <p className="text-sm font-medium flex-1">{config.top_message}</p>
+        <p className="text-sm font-medium flex-1">{topMessage}</p>
         <button
           onClick={handleClose}
           className="ml-4 p-1 hover:opacity-70 transition-opacity"

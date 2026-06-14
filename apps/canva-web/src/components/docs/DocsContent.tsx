@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { Search, ChevronRight, Book, FileText } from 'lucide-react';
 import { Input } from '@canva-web/src/components/base/input/Input';
 import { useDebounce } from '@canva-web/src/hooks/useDebounce';

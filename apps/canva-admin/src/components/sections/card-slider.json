@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_card_sliders",
+  "info": {
+    "displayName": "Card slider",
+    "description": "Horizontal card slider showing multiple blog posts",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}
+
+

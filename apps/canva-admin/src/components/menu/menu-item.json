@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_menu_menu_items",
+  "info": {
+    "displayName": "Menu Item",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_self",
+        "_blank",
+        "_parent",
+        "_top"
+      ],
+      "default": "_self"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    },
+    "isAuth": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
+

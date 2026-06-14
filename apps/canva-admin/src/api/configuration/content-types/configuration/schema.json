@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "configurations",
+  "info": {
+    "singularName": "configuration",
+    "pluralName": "configurations",
+    "displayName": "Configuration"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "site_title": {
+      "type": "string"
+    },
+    "site_url": {
+      "type": "string"
+    },
+    "top_message": {
+      "type": "text"
+    },
+    "top_message_enabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "top_message_type": {
+      "type": "enumeration",
+      "enum": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info"
+    },
+    "header_menu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menu"
+    },
+    "footer_menu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menu"
+    }
+  }
+}

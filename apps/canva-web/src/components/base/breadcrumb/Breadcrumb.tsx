@@ -1,9 +1,8 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { Link, usePathname } from '@canva-web/src/i18n/navigation';
 import ArrowRightIcon from '../../icons/ArrowRightIcon';
 import HomeIcon from '../../icons/HomeIcon';
-import Link from 'next/link';
 
 export default function Breadcrumb({
   breadcrumbs,
@@ -42,7 +41,7 @@ export default function Breadcrumb({
               <ArrowRightIcon className="shrink-0 mx-2 size-4 text-gray-400" />
             </>
           )}
-          <a
+          <Link
             aria-label={breadcrumb.label}
             className={`flex items-center text-sm ${
               isActive(breadcrumb.href)
@@ -53,7 +52,7 @@ export default function Breadcrumb({
             aria-current={isActive(breadcrumb.href) ? 'page' : undefined}
           >
             {breadcrumb.label}
-          </a>
+          </Link>
         </li>
       ))}
     </ol>

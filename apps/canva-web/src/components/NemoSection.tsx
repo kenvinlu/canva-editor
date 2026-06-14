@@ -2,7 +2,7 @@
 
 import { ArrowRight, Cog, Layers } from 'lucide-react';
 import { Button } from './base/button/Button';
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import MaskedImage from './masked-image/MaskedImage';
 import PolygonIcon from './icons/PolygonIcon';
 import { useTranslations } from 'next-intl';

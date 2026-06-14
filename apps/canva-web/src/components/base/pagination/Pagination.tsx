@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { Link, usePathname } from '@canva-web/src/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 const generatePagination = (currentPage: number, totalPages: number) => {

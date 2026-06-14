@@ -3,7 +3,7 @@
 import { UserModel } from '@canva-web/src/models/user.model';
 import { useUserStore } from '@canva-web/src/store/useUserStore';
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@canva-web/src/i18n/navigation';
 import { updateSession } from '@canva-web/src/core/actions/session';
 import { defaultRoute } from '@canva-web/src/core/guards/appRoutes';
 

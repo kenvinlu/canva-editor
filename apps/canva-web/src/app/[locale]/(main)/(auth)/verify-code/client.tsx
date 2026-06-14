@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@canva-web/src/components/base/button/Button';
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import {

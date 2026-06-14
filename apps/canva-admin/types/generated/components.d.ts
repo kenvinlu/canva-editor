@@ -12,6 +12,35 @@ export interface FontFamilyFontFamily extends Struct.ComponentSchema {
   };
 }
 
+export interface MenuMenu extends Struct.ComponentSchema {
+  collectionName: 'components_menu_menus';
+  info: {
+    displayName: 'Menu';
+    icon: 'menu';
+  };
+  attributes: {
+    items: Schema.Attribute.Component<'menu.menu-item', true>;
+  };
+}
+
+export interface MenuMenuItem extends Struct.ComponentSchema {
+  collectionName: 'components_menu_menu_items';
+  info: {
+    displayName: 'Menu Item';
+    icon: 'list';
+  };
+  attributes: {
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    isAuth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    order: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    target: Schema.Attribute.Enumeration<
+      ['_self', '_blank', '_parent', '_top']
+    > &
+      Schema.Attribute.DefaultTo<'_self'>;
+  };
+}
+
 export interface MessageReplyMessageReply extends Struct.ComponentSchema {
   collectionName: 'components_message_reply_message_replies';
   info: {
@@ -29,6 +58,47 @@ export interface MessageReplyMessageReply extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<false>;
     senderEmail: Schema.Attribute.Email & Schema.Attribute.Required;
     senderName: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface SectionsCardSlider extends Struct.ComponentSchema {
+  collectionName: 'components_sections_card_sliders';
+  info: {
+    description: 'Horizontal card slider showing multiple blog posts';
+    displayName: 'Card slider';
+    icon: 'grid';
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsColumnList extends Struct.ComponentSchema {
+  collectionName: 'components_sections_column_lists';
+  info: {
+    description: 'Column-based list of blog posts';
+    displayName: 'Column list';
+    icon: 'bulletList';
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    columns: Schema.Attribute.Integer;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsHeroSlideshow extends Struct.ComponentSchema {
+  collectionName: 'components_sections_hero_slideshows';
+  info: {
+    description: 'Top banner slideshow for blog home';
+    displayName: 'Hero slideshow';
+    icon: 'slideshow';
+  };
+  attributes: {
+    articles: Schema.Attribute.Relation<'manyToMany', 'api::article.article'>;
+    subtitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -79,7 +149,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'font-family.font-family': FontFamilyFontFamily;
+      'menu.menu': MenuMenu;
+      'menu.menu-item': MenuMenuItem;
       'message-reply.message-reply': MessageReplyMessageReply;
+      'sections.card-slider': SectionsCardSlider;
+      'sections.column-list': SectionsColumnList;
+      'sections.hero-slideshow': SectionsHeroSlideshow;
       'seo.open-graph': SeoOpenGraph;
       'seo.seo': SeoSeo;
     }

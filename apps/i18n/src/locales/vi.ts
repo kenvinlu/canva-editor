@@ -1,5 +1,5 @@
 import { IConfigApp } from '../constraint';
-import { Authentication, Common, Footer, Header, Blog, Editor, Home } from '../modules/vi';
+import { Authentication, Common, Footer, Header, Blog, Editor, Home, User, SEO } from '../modules/vi';
 
 const config: IConfigApp = {
   common: Common,
@@ -9,6 +9,8 @@ const config: IConfigApp = {
   blog: Blog,
   editor: Editor,
   home: Home,
+  user: User,
+  seo: SEO,
 };
 
 module.exports = config;

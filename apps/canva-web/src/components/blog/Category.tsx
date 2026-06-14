@@ -1,5 +1,5 @@
 import { cx } from "@canva-web/src/utils/blog";
-import Link from "next/link";
+import { Link } from "@canva-web/src/i18n/navigation";
 
 type Props = {
   link?: string;

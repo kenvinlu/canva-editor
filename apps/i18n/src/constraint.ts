@@ -5,6 +5,8 @@ import { IHeader } from './interfaces/header';
 import { IBlog } from './interfaces/blog';
 import { IEditor } from './interfaces/editor';
 import { IHome } from './interfaces/home';
+import { IUser } from './interfaces/user';
+import { ISEO } from './interfaces/seo';
 
 export interface IConfigApp {
   home: IHome;
@@ -14,6 +16,8 @@ export interface IConfigApp {
   auth: IAuthentication;
   blog: IBlog;
   editor: IEditor;
+  user: IUser;
+  seo: ISEO;
 }
 
 // We'll need this type for our production config.

@@ -47,6 +47,7 @@ module.exports = {
           })
           .catch((error) => {
             // Handle errors
+            console.log(`Tried with ${apiUrl}/send-email. Key ${apiKey}`)
             if (error.response) {
               // Server responded with error status
               throw new Error(

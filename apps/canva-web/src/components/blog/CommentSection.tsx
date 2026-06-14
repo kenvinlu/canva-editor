@@ -7,7 +7,7 @@ import { CommentList } from './CommentList';
 import { MessageSquare, LogIn } from 'lucide-react';
 import { useUserStore } from '@canva-web/src/store/useUserStore';
 import { Button } from '@canva-web/src/components/base/button/Button';
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { useTranslations } from 'next-intl';
 
 interface CommentSectionProps {

@@ -1,0 +1,14 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/blog-home",
+      "handler": "blog-home.find",
+      "config": {
+        "policies": [],
+        "auth": false
+      }
+    }
+  ]
+}
+

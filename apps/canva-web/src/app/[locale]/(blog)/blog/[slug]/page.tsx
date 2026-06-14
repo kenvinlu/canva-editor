@@ -12,6 +12,7 @@ import PageTitle from '@canva-web/src/components/blog/PageTitle';
 import { getLocale, getTranslations } from 'next-intl/server';
 import NotFoundContent from '@canva-web/src/components/NotFoundContent';
 import { defaultLocale } from '@canva-web/src/i18n/config';
+import "@canva-web/src/styles/ck-content.scss";
 export const dynamic = 'force-dynamic';
 export async function generateMetadata({
   params,
@@ -118,7 +119,7 @@ export default async function BlogPage({
       {
         '@type': 'Person',
         name: blog?.author ? [blog.author] : siteMetadata.author,
-        url: siteMetadata.twitter,
+        url: siteMetadata.siteUrl + '/blog/' + blog.slug,
       },
     ],
   };

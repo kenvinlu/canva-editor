@@ -1,6 +1,9 @@
 import { $get } from "@canva-web/src/services/base-request.service";
 import { NextResponse, type NextRequest } from "next/server";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
@@ -19,6 +22,6 @@ export async function GET(req: NextRequest) {
   }
 }
 
-function doRequest(page: string, limit: string, keyword: string): Promise<any> {
+async function doRequest(page: string, limit: string, keyword: string): Promise<any> {
   return $get(`/projects/my-projects?pi=${page}&ps=${limit}&kw=${keyword}`);
 }

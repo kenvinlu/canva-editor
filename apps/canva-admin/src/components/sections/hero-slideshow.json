@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_hero_slideshows",
+  "info": {
+    "displayName": "Hero slideshow",
+    "description": "Top banner slideshow for blog home",
+    "icon": "slideshow"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "subtitle": {
+      "type": "text",
+      "required": false
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}
+
+

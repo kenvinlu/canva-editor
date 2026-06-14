@@ -12,7 +12,8 @@ import { useTranslations } from 'next-intl';
 import GeneralProfileCard from '@canva-web/src/components/profile/GeneralCard';
 import PasswordProfileCard from '@canva-web/src/components/profile/PasswordCard';
 import SecurityProfileCard from '@canva-web/src/components/profile/SecurityCard';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from '@canva-web/src/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 
 export function ProfilePageClient() {
   const t = useTranslations();

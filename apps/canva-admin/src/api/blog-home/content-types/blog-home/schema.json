@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "blog_home",
+  "info": {
+    "singularName": "blog-home",
+    "pluralName": "blog-homes",
+    "displayName": "Blog home",
+    "description": "Configurable blog home layout"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": false
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero-slideshow",
+        "sections.card-slider",
+        "sections.column-list"
+      ]
+    },
+    "seo": {
+      "type": "component",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "seo.seo",
+      "repeatable": false
+    }
+  }
+}
+
+

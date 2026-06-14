@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import createIntlMiddleware from 'next-intl/middleware';
-import { supportedLocales, defaultLocale } from './i18n/config';
+import createMiddleware from 'next-intl/middleware';
+import { routing } from './i18n/routing';
 import { generateNonce } from './utils/helpers';
 import {
   IPrivateRoute,
@@ -14,11 +14,12 @@ const handleI18nRouting: (
   request: NextRequest
 ) => Promise<NextResponse | undefined> = (request: NextRequest) =>
   Promise.resolve(
-    createIntlMiddleware({
-      localePrefix: 'as-needed',
-      defaultLocale,
-      locales: supportedLocales,
+    createMiddleware({
+      ...routing,
       localeDetection: false, // Disable browser locale detection, always use defaultLocale
+      localeCookie: {
+        maxAge: 60 * 60 * 24 * 365, // one year
+      }
     })(request)
   );
 

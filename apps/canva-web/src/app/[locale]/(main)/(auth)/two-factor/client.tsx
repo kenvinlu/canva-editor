@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 // import { twoFactor } from "@canva-web/src/utils/auth-client";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@canva-web/src/i18n/navigation";
 import { useState } from "react";
 
 export function TwoFactorPageClient() {

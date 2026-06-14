@@ -1,5 +1,6 @@
 export interface IHeader {
     home: string;
+    demo: string;
     about: string;
     dashboard: string;
     inbox: string;

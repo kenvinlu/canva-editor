@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { Button } from '../base/button/Button';
 import { ArrowRight } from 'lucide-react';
 import { BlogCard } from './BlogCard';
@@ -51,12 +51,7 @@ export default function BlogSection({ blogs = [] }: Props) {
         </>
       ) : (
         <div className="flex justify-center">
-          <Link
-            href="/templates"
-            className="inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90"
-          >
-            {t('createProject')}
-          </Link>
+          <p>{t('noArticlesYet')}</p>
         </div>
       )}
     </>

@@ -1,7 +1,8 @@
 'use client';
 
 import { Github } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@canva-web/src/i18n/navigation";
+import NextLink from "next/link";
 
 import { cn } from "../utils";
 import Logo from "./Logo";
@@ -115,13 +116,13 @@ export function Footer({ className }: { className?: string }) {
               <ul className="space-y-2 text-sm">
                 {link.children.map((child) => (
                   <li key={child.label}>
-                    <Link
+                    <NextLink
                       href={child.href}
                       className="text-muted-foreground hover:text-foreground"
                       aria-label={child.label}
                     >
                       {child.label}
-                    </Link>
+                    </NextLink>
                   </li>
                 ))}
               </ul>
@@ -142,15 +143,16 @@ export function Footer({ className }: { className?: string }) {
                 <Github className="h-4 w-4" />
                 GitHub
               </Link>
-              <Link href="/page/privacy" className="hover:text-foreground">
+              <Link href="/page/privacy-policy" className="hover:text-foreground">
                 {t('privacy')}
               </Link>
-              <Link href="/page/terms" className="hover:text-foreground">
+              <Link href="/page/terms-of-service" className="hover:text-foreground">
                 {t('terms')}
               </Link>
-              <Link href="/sitemap" className="hover:text-foreground">
-                {t('sitemap')}
+              <Link href="/page/license" className="hover:text-foreground">
+                License
               </Link>
+              <Link href="mailto:support@canva-clone.com" className="hover:text-foreground">Contact Us</Link>
               <Button variant="outline" onClick={CookieConsent.showPreferences}>
                 {t('manageCookies')}
               </Button>

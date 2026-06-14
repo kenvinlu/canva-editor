@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_message_reply_message_replies",
+  "info": {
+    "displayName": "Message Reply",
+    "description": "A reply to a message in the inbox thread"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 1000
+    },
+    "senderName": {
+      "type": "string",
+      "required": true
+    },
+    "senderEmail": {
+      "type": "email",
+      "required": true
+    },
+    "isAdmin": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
+

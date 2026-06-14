@@ -35,6 +35,27 @@ export type Tag = {
   slug: string;
 };
 
+export type Page = {
+  id: number;
+  documentId: string;
+  title: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  locale: string;
+  slug: string;
+  content: string;
+  seo?: {
+    metaTitle?: string;
+    metaDescription?: string;
+    keywords?: string;
+    metaRobots?: string;
+    structuredData?: string;
+    metaViewport?: string;
+    canonicalURL?: string;
+  };
+};
+
 export type Comment = {
   id: number;
   documentId?: string;

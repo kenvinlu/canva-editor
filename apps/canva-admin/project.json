@@ -1,0 +1,26 @@
+{
+  "name": "canva-admin",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/canva-admin/src",
+  "targets": {
+    "serve": {
+      "executor": "@nx-extend/strapi:serve",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nx-extend/strapi:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/canva-admin",
+        "tsConfig": "apps/canva-admin/tsConfig.json"
+      },
+      "configurations": {
+        "production": {
+          "production": true
+        }
+      }
+    }
+  },
+  "tags": []
+}

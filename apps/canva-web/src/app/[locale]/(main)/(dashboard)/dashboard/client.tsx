@@ -5,8 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@canv
 import { signOut } from "@canva-web/src/core/actions/session";
 import { useUserStore } from "@canva-web/src/store/useUserStore";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { Link, useRouter } from "@canva-web/src/i18n/navigation";
 
 export function DashboardPageClient() {
   const t = useTranslations();

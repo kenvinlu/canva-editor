@@ -5,6 +5,8 @@ import { Header } from './header';
 import { Blog } from './blog';
 import { Editor } from './editor';
 import { Home } from './home';
+import { User } from './user';
+import { SEO } from './seo';
 
 export {
   Authentication,
@@ -14,4 +16,6 @@ export {
   Blog,
   Editor,
   Home,
+  User,
+  SEO,
 };

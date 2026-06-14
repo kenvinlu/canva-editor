@@ -6,7 +6,7 @@ import { UserModel } from '@canva-web/src/models/user.model';
 
 export default async function DemoPage() {
   const { email, password } = getDemoCredentials();
-  
+
   if (!email || !password) {
     return notFound();
   }

@@ -165,7 +165,7 @@ export const Authentication: IAuthentication = {
   totpCodePlaceholder: 'Enter the code from your authenticator app',
   totpDescription: 'Use an authenticator app to generate codes',
   enableOTP: 'Enable One-Time Password (OTP)',
-  otpDescription: 'Receive codes via email or SMS',
+  otpDescription: 'Receive codes via email',
   twoFactorEnableFailed: 'Failed to enable two-factor authentication',
   twoFactorEnabled: 'Two-factor authentication has been enabled',
   twoFactorDisabled: 'Two-factor authentication has been disabled',

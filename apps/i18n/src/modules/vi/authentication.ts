@@ -165,7 +165,7 @@ export const Authentication: IAuthentication = {
   totpCodePlaceholder: 'Nhập mã từ ứng dụng xác thực',
   totpDescription: 'Sử dụng ứng dụng xác thực để tạo mã',
   enableOTP: 'Bật mật khẩu một lần (OTP)',
-  otpDescription: 'Nhận mã qua email hoặc SMS',
+  otpDescription: 'Nhận mã qua email',
   twoFactorEnableFailed: 'Lỗi khi bật xác thực hai yếu tố',
   twoFactorEnabled: 'Xác thực hai yếu tố đã được bật',
   twoFactorDisabled: 'Xác thực hai yếu tố đã được tắt',

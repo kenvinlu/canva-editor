@@ -7,4 +7,6 @@ export default ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
+  proxy: true,
+  url: env('URL', 'http://localhost:1337'),
 });

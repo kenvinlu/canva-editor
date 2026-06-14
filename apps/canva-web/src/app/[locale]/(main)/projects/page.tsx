@@ -6,16 +6,16 @@ import { fetchProjects } from "@canva-web/src/services/project.service";
 import { fetchMasterTemplates } from "@canva-web/src/services/template.service";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+export const dynamic = 'force-dynamic';
 
 export default async function ProjectListPage({ searchParams }: { searchParams: Promise<{ page?: string, kw?: string }> }) {
   const { page, kw } = await searchParams;
   const limit = 8;
-
   const [projects, templateResult] = await Promise.all([
     fetchProjects(parseInt(page || '1', 10), limit, kw || ''),
     fetchMasterTemplates(1, 8),
   ]);
-  console.log(projects)
+
   if (!projects?.data) {
     return notFound();
   }

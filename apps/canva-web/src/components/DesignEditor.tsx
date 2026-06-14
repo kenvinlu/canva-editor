@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { Project } from '../models/project.model';
-import { updateProject } from '../services/project.service';
-import { apiUrl } from '../utils/config';
+import { deleteProject, updateProject } from '../services/project.service';
+import { apiUrl, unsplashAccessKey } from '../utils/config';
 import dynamic from 'next/dynamic';
+import { useRouter } from 'next/navigation';
 
 // Define EditorConfig type inline to avoid loading canva-editor module during SSR
 type EditorConfig = {
@@ -63,7 +64,7 @@ const editorConfig: EditorConfig = {
     frameKeywordSuggestion: '/frame-suggestion',
   },
   unsplash: {
-    accessKey: 'h7hl06iEAXniAqSKnIY9UxVOjt_Bc1SRtp6T0b-T2ow',
+    accessKey: unsplashAccessKey,
     pageSize: 30,
   },
   editorAssetsUrl: 'https://canva-editor-api.vercel.app/editor',
@@ -72,25 +73,23 @@ const editorConfig: EditorConfig = {
     'mother,sale,discount,fashion,model,deal,motivation,quote',
 };
 
-const DesignEditor: React.FC<{ 
-  project: Project; 
-  token?: string; 
+const DesignEditor: React.FC<{
+  project: Project;
+  token?: string;
   messages?: Record<string, unknown>;
 }> = ({ project, token = '', messages = {} }) => {
-  console.log(project);
+  const router = useRouter();
   editorConfig.apis.userToken = token;
-  console.log(messages?.editor)
+
   // Add translations to editor config
   const configWithTranslations: EditorConfig = {
     ...editorConfig,
     translations: messages?.editor as Record<string, any>,
   };
-  
+
   const [saving, setSaving] = useState(false);
   const handleOnChanges = (changes: any) => {
-    console.log('On changes');
-    console.log(changes);
-    console.log('project', project);
+    console.log(`On changes (${project.documentId}):`, changes);
 
     setSaving(true);
     updateProject(project.id, { data: changes }).then(() => {
@@ -99,8 +98,6 @@ const DesignEditor: React.FC<{
   };
 
   const handleOnDesignNameChanges = (newName: string) => {
-    console.log('On name changes');
-    console.log(newName);
     if (!project?.id) {
       console.error('Project id is not found');
       return;
@@ -116,7 +113,18 @@ const DesignEditor: React.FC<{
   };
 
   const handleOnRemove = () => {
-    console.log('On remove');
+    if (!project?.documentId) {
+      console.error('Project document id is not found');
+      return;
+    }
+    setSaving(true);
+    deleteProject(project.documentId).then(() => {
+      setSaving(false);
+      router.push('/projects');
+    }).catch((error) => {
+      console.error('Failed to delete project:', error);
+      setSaving(false);
+    });
   };
 
   return (

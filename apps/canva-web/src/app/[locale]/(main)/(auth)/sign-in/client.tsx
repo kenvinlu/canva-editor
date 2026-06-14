@@ -1,8 +1,7 @@
 'use client';
 
 import { Button } from '@canva-web/src/components/base/button/Button';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { Link, useRouter } from '@canva-web/src/i18n/navigation';
 import { useState } from 'react';
 import {
   Card,
@@ -259,8 +258,8 @@ export function SignInPageClient() {
                 </span>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <Button
+            <div className="grid grid-cols-1 gap-4">
+              {/* <Button
                 variant="outline"
                 onClick={() => {
                   router.push(`/api/auth/connect/github`);
@@ -269,7 +268,7 @@ export function SignInPageClient() {
               >
                 <GithubIcon />
                 GitHub
-              </Button>
+              </Button> */}
               <Button
                 variant="outline"
                 onClick={() => {

@@ -124,54 +124,100 @@ export default factories.createCoreController(
           return ctx.unauthorized('Authentication required');
         }
 
-        // Get master template ID from request body
+        // Get master template ID from request body (optional)
         const { templateId } = ctx.request.body;
-        if (!templateId) {
-          return ctx.badRequest('Master template ID is required');
-        }
 
-        // Fetch master template
-        const masterTemplate = await strapi.entityService.findOne(
-          'api::master-template.master-template',
-          templateId,
-          {
-            populate: {
-              img: {
-                fields: ['id']
+        // If templateId is provided, create project from template
+        if (templateId) {
+          // Fetch master template
+          const masterTemplate = await strapi.entityService.findOne(
+            'api::master-template.master-template',
+            templateId,
+            {
+              populate: {
+                img: {
+                  fields: ['id']
+                },
               },
-            },
+            }
+          );
+
+          if (!masterTemplate) {
+            return ctx.notFound('Master template not found');
           }
-        );
 
-        if (!masterTemplate) {
-          return ctx.notFound('Master template not found');
-        }
+          // Extract img ID (adjust based on Strapi version)
+          const imgId = (masterTemplate as any)?.img?.id;
 
-        // Extract img ID (adjust based on Strapi version)
-        const imgId = (masterTemplate as any)?.img?.id;
-
-        if (!imgId) {
-          console.warn('No img ID found in masterTemplate');
-        }
-        // Create new project with template data
-        const project = await strapi.entityService.create(
-          'api::project.project',
-          {
-            data: {
-              templateId: masterTemplate.id,
-              img: imgId,
-              desc: masterTemplate.desc,
-              data: masterTemplate.data,
-              user: user.id,
-              pages: masterTemplate.pages,
-              publishedAt: new Date(),
-            },
+          if (!imgId) {
+            console.warn('No img ID found in masterTemplate');
           }
-        );
+          // Create new project with template data
+          const project = await strapi.entityService.create(
+            'api::project.project',
+            {
+              data: {
+                templateId: masterTemplate.id,
+                img: imgId,
+                desc: masterTemplate.desc,
+                data: masterTemplate.data,
+                user: user.id,
+                pages: masterTemplate.pages,
+                publishedAt: new Date(),
+              },
+            }
+          );
 
-        return {
-          data: project,
-        };
+          return {
+            data: project,
+          };
+        } else {
+          // Create empty project
+          const project = await strapi.entityService.create(
+            'api::project.project',
+            {
+              data: {
+                data: JSON.stringify([
+                    {
+                        "a": "",
+                        "b": "",
+                        "c": {
+                            "d": {
+                                "e": {
+                                    "f": "RootLayer"
+                                },
+                                "g": {
+                                    "h": {
+                                        "i": 1640,
+                                        "j": 924
+                                    },
+                                    "k": {
+                                        "l": 0,
+                                        "m": 0
+                                    },
+                                    "n": 0,
+                                    "o": "#fff",
+                                    "p": null
+                                },
+                                "r": false,
+                                "s": [],
+                                "t": null
+                            }
+                        }
+                    }
+                ]), // Empty page
+                desc: 'Untitled Project',
+                user: user.id,
+                pages: 1,
+                publishedAt: new Date(),
+              },
+            }
+          );
+
+          return {
+            data: project,
+          };
+        }
       } catch (error) {
         ctx.throw(500, (error as Error).message || 'Failed to create project');
       }
@@ -306,6 +352,42 @@ export default factories.createCoreController(
         return { data: updatedProject };
       } catch (error) {
         ctx.throw(500, (error as Error).message || 'Failed to update project');
+      }
+    },
+    async deleteUserProject(ctx: Context) {
+      try {
+        const user = ctx.state.user;
+        if (!user) {
+          return ctx.unauthorized('Authentication required');
+        }
+
+        const { id } = ctx.params;
+
+        const project: any = await strapi.documents('api::project.project').findOne({
+          documentId: id,
+          populate: ['user'],
+        });
+
+        if (!project) {
+          return ctx.notFound('Project not found');
+        }
+
+        // Check if the project is associated with the authenticated user
+        if (project.user?.id !== user.id) {
+          return ctx.forbidden(
+            'You do not have permission to delete this project'
+          );
+        }
+
+        await strapi.documents('api::project.project').delete({
+          documentId: id,
+        });
+
+        return {
+          data: true,
+        };
+      } catch (error) {
+        ctx.throw(500, (error as Error).message || 'Failed to delete project');
       }
     },
   })

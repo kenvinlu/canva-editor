@@ -23,9 +23,7 @@ export type ProductDetails = {
 };
 
 export const getProductDetails = (slug: string): ProductDetails | null => {
-  const normalizedSlug = slug.toLowerCase();
-
-  if (normalizedSlug === 'basic') {
+  if (slug === 'canva-editor') {
     return {
       highlights: [
         {
@@ -125,7 +123,7 @@ export const getProductDetails = (slug: string): ProductDetails | null => {
     };
   }
 
-  if (normalizedSlug === 'advanced') {
+  if (slug === 'canva-clone') {
     return {
       highlights: [
         {

@@ -6,6 +6,7 @@
 
 import { useEffect } from 'react';
 import { useUserStore } from '@canva-web/src/store/useUserStore';
+import { useConfigurationStore } from '@canva-web/src/store/useConfigurationStore';
 
 export default function ZustandHydration({
   children,
@@ -15,6 +16,10 @@ export default function ZustandHydration({
   useEffect(() => {
     useUserStore.persist.rehydrate();
     useUserStore.getState().setHydrated();
+    
+    useConfigurationStore.persist.rehydrate();
+    // Configuration store will automatically fetch fresh data after rehydration
+    // via onRehydrateStorage callback
   }, []);
 
   return <>{children}</>;

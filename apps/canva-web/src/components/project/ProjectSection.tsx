@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { Project } from '../../models/project.model';
 import { Button } from '../base/button/Button';
 import { ArrowRight } from 'lucide-react';

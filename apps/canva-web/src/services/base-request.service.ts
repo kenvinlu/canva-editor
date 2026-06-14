@@ -10,18 +10,24 @@ type RequestOptions = {
   body?: unknown;
   headers?: Record<string, string | number | boolean>;
   revalidate?: number;
+  tags?: string[];
 };
 
 const baseRequest = async <T>(url: string, options: RequestOptions): Promise<BaseResponseModel<T>> => {
-  const { method, body, headers = {}, revalidate } = options;
+  const { method, body, headers = {}, revalidate, tags = [] } = options;
   
   const nextOptions: NextFetchRequestConfig = {
     revalidate: method === 'GET' ? 10 : undefined, // 10 seconds for GET requests
+    tags: tags || [],
   };
   if (revalidate !== undefined) {
     // Custom revalidate
     nextOptions.revalidate = revalidate;
   }
+  
+  // If tags are provided, we want to use cache with tags (not no-store)
+  // This allows revalidateTag to work properly
+  const cacheStrategy = tags.length > 0 ? 'force-cache' : (nextOptions.revalidate ? 'force-cache' : 'no-store');
   
   try {
     // const start = Date.now();
@@ -33,9 +39,9 @@ const baseRequest = async <T>(url: string, options: RequestOptions): Promise<Bas
         ...headers,
       },
       next: { ...nextOptions },
-      cache: nextOptions.revalidate ? 'force-cache' : 'no-store'
+      cache: cacheStrategy
     });
-
+    
     // const end = Date.now();
     const result: BaseResponseModel<T> = await res.json();
 
@@ -89,7 +95,7 @@ async function nextRequest<T>(url: string, options: RequestOptions): Promise<Bas
   return baseRequest<T>(url, { ...options, headers: proxyHeaders });
 }
 
-const $get = async <T>(url: string, headers?: Record<string, string | number>, revalidate?: number) => serverRequest<T>(apiUrl + url, { method: "GET", headers, revalidate });
+const $get = async <T>(url: string, headers?: Record<string, string | number>, revalidate?: number, tags?: string[]) => serverRequest<T>(apiUrl + url, { method: "GET", headers, revalidate, tags });
 const $post = async <T>(url: string, body?: unknown, headers?: Record<string, string | number | boolean>) => serverRequest<T>(apiUrl + url, { method: "POST", body, headers });
 const $put = async <T>(url: string, body?: unknown, headers?: Record<string, string | number | boolean>) => serverRequest<T>(apiUrl + url, { method: "PUT", body, headers });
 const $delete = async <T>(url: string, body?: unknown, headers?: Record<string, string | number | boolean>) =>
@@ -107,7 +113,7 @@ const $upload = async <T>(url: string, formData: FormData) => {
   return baseRequest<T>(apiUrl + url, { method: "POST", body: formData, headers });
 };
 
-const $nextFetch = async <T>(url: string, headers?: Record<string, string | number>, revalidate?: number) => nextRequest<T>(nextApiUrl + url, { method: "GET", headers, revalidate });
+const $nextFetch = async <T>(url: string, headers?: Record<string, string | number>, revalidate?: number, tags?: string[]) => nextRequest<T>(nextApiUrl + url, { method: "GET", headers, revalidate, tags });
 const $nextPost = async <T>(url: string, body?: unknown, headers?: Record<string, string | number>, revalidate?: number) => nextRequest<T>(nextApiUrl + url, { method: "POST", body, headers, revalidate });
 const $nextPatch = async <T>(url: string, body?: unknown, headers?: Record<string, string | number>, revalidate?: number) => nextRequest<T>(nextApiUrl + url, { method: "PATCH", body, headers, revalidate });
 const $nextPut = async <T>(url: string, body?: unknown, headers?: Record<string, string | number>, revalidate?: number) => nextRequest<T>(nextApiUrl + url, { method: "PUT", body, headers, revalidate });

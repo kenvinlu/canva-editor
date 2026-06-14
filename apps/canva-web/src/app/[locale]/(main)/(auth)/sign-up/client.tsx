@@ -1,8 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link, useRouter } from '@canva-web/src/i18n/navigation';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { useTranslations } from 'next-intl';

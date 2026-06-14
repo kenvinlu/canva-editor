@@ -7,6 +7,7 @@ import { getMessages } from 'next-intl/server';
 import { Footer } from '@canva-web/src/components/Footer';
 import { Header } from '@canva-web/src/components/Header';
 import { getSession } from '@canva-web/src/core/actions/session';
+import { ThemeProvider } from 'next-themes';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -63,7 +64,10 @@ const RootBlogLayout = async ({
   params: Promise<{ locale: string }>;
 }) => {
   const { locale } = await params;
-  const [messages, userSession] = await Promise.all([getMessages(), getSession()]);
+  const [messages, userSession] = await Promise.all([
+    getMessages(),
+    getSession(),
+  ]);
 
   return (
     <html>
@@ -75,13 +79,20 @@ const RootBlogLayout = async ({
         )}
       >
         <TranslationProvider locale={locale} messages={messages}>
-          <div className="flex min-h-screen flex-col">
-            <Header isDemo={!!userSession?.isDemo} />
-            <main className="flex-1 container mx-auto max-w-7xl">
-              {children}
-            </main>
-            <Footer />
-          </div>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex min-h-screen flex-col">
+              <Header isDemo={!!userSession?.isDemo} />
+              <main className="flex-1 container mx-auto max-w-7xl">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </ThemeProvider>
         </TranslationProvider>
       </body>
     </html>

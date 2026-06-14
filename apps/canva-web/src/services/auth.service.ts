@@ -87,7 +87,7 @@ async function createUser(payload: UserCreateModel) {
 }
 
 async function getCurrentUser() {
-  return $nextFetch<UserModel>(`/users/me`, undefined, 0);
+  return $nextFetch<UserModel | null>(`/users/me`, undefined, 0);
 }
 
 async function updateUserProfile(user: Partial<UserModel>) {

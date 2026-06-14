@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { Button } from '../base/button/Button';
 import GithubIcon from '../icons/GithubIcon';
 import { ExternalLink } from 'lucide-react';
@@ -17,8 +17,8 @@ export function AuthLayout({
   githubUrl,
 }: AuthLayoutProps) {
   return (
-    <div className="flex flex-1 bg-gradient-to-tr from-blue-800 to-purple-700 min-h-150">
-      <div className="flex w-1/2 justify-around items-center">
+    <div className="flex flex-col md:flex-row flex-1 bg-gradient-to-tr from-blue-800 to-purple-700 min-h-150">
+      <div className="flex w-full md:w-1/2 p-4 md:p-8 justify-around items-center">
         <div>
           <h1 className="text-white font-bold text-4xl font-sans">
             CanvaClone
@@ -44,8 +44,8 @@ export function AuthLayout({
         </div>
       </div>
 
-      <div className="flex w-1/2 justify-center items-center">
-        <div className="flex items-center justify-center p-4 md:p-8">
+      <div className="flex w-full md:w-1/2 justify-center items-center">
+        <div className="flex items-center justify-center p-4 md:p-8 w-full">
           <div className="mx-auto w-full max-w-md space-y-6">
             <div className="space-y-2 text-center text-white">
               <h1 className="text-3xl font-bold">{heading}</h1>

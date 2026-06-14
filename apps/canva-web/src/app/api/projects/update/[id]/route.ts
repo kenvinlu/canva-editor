@@ -1,4 +1,6 @@
 import { $put } from "@canva-web/src/services/base-request.service";
+import FETCH_TAGS from "@canva-web/src/utils/fetchTags";
+import { revalidateTag } from "next/cache";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function PUT(
@@ -18,6 +20,7 @@ export async function PUT(
     }
     
     const result = await doRequest(projectId, body);
+    revalidateTag(FETCH_TAGS.PROJECT_LIST, 'max');
     return Response.json(result);
   } catch (error) {
     console.error('Update project error:', error);

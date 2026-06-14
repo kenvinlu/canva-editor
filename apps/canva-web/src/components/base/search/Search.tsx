@@ -1,6 +1,7 @@
 'use client';
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter } from '@canva-web/src/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
 import { SearchIcon, X } from 'lucide-react';
 import { Button } from '../button/Button';

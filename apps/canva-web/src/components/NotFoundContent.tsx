@@ -5,7 +5,7 @@
  * @see https://nextjs.org/docs/app/api-reference/file-conventions/not-found
  * @see https://next-intl-docs.vercel.app/docs/environments/server-client-components
  */
-import Link from "next/link";
+import { Link } from "@canva-web/src/i18n/navigation";
 import { useTranslations } from "next-intl";
 import styled from "styled-components";
 

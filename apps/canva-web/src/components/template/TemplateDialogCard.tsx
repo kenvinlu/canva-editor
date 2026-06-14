@@ -5,20 +5,24 @@ import * as Dialog from '@radix-ui/react-dialog';
 import TemplateDetail from './TemplateDetail';
 import { Template } from '../../models/template.model';
 import { TemplateCard } from './TemplateCard';
-import Link from 'next/link';
+import { Link } from '@canva-web/src/i18n/navigation';
 import { X } from 'lucide-react';
 import { Button } from '../base/button/Button';
+import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 
 const TemplateDetailDialog: React.FC<{ template: Template }> = ({
   template,
 }) => {
   const [open, setOpen] = useState(false);
   const wasOpen = useRef(false); // Track if dialog was ever opened
+  const t = useTranslations('common');
+  const locale = useLocale();
 
   useEffect(() => {
     if (open) {
       // Update URL when dialog opens
-      window.history.pushState({}, '', `/templates/${template.documentId}|${template.id}`);
+      window.history.pushState({}, '', `/${locale}/templates/${template.documentId}|${template.id}`);
       wasOpen.current = true; // Mark dialog as opened
     } else if (wasOpen.current) {
       // Only go back if dialog was previously opened
@@ -30,7 +34,7 @@ const TemplateDetailDialog: React.FC<{ template: Template }> = ({
   useEffect(() => {
     const handlePopState = () => {
       // Check if URL matches the template detail route
-      const isTemplateRoute = window.location.pathname === `/templates/${template.documentId}|${template.id}`;
+      const isTemplateRoute = window.location.pathname === `/${locale}/templates/${template.documentId}|${template.id}`;
       setOpen(isTemplateRoute);
       wasOpen.current = isTemplateRoute; // Update wasOpen based on route
     };
@@ -65,7 +69,7 @@ const TemplateDetailDialog: React.FC<{ template: Template }> = ({
           data-testid="template-detail-dialog"
         >
           <Dialog.Title className="sr-only">
-            Template detail
+            {t('templateDetail')}
           </Dialog.Title>
           <div className="relative flex-1 overflow-y-auto">
             <TemplateDetail template={template} recentTemplates={[]} />

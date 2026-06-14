@@ -1,8 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@canva-web/src/i18n/navigation";
 
 interface DashboardLayoutClientProps {
   children: React.ReactNode;

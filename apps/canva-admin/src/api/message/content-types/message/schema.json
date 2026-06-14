@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "messages",
+  "info": {
+    "singularName": "message",
+    "pluralName": "messages",
+    "displayName": "Message",
+    "description": "User messages to admin (Inbox)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "subject": {
+      "type": "string",
+      "required": true,
+      "maxLength": 200
+    },
+    "content": {
+      "type": "text",
+      "required": true,
+      "maxLength": 1000
+    },
+    "messageStatus": {
+      "type": "enumeration",
+      "enum": ["unread", "read"],
+      "default": "unread",
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "userName": {
+      "type": "string"
+    },
+    "userEmail": {
+      "type": "email",
+      "required": true
+    },
+    "replies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "message-reply.message-reply"
+    }
+  }
+}

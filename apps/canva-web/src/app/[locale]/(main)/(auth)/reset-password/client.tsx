@@ -1,8 +1,8 @@
 'use client';
 
 import { Button } from '@canva-web/src/components/base/button/Button';
-import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { Link, useRouter } from '@canva-web/src/i18n/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import {
   Card,

@@ -1,36 +1,52 @@
-import PageContainer from "@canva-web/src/components/PageContainer";
-import SearchArticles from "@canva-web/src/components/blog/SearchArticles";
-import { fetchArticles } from "@canva-web/src/services/cms.service";
-import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import { getLocale } from "next-intl/server";
+import PageContainer from '@canva-web/src/components/PageContainer';
+import { getLocale } from 'next-intl/server';
+import { fetchBlogHome } from '@canva-web/src/services/cms.service';
+import { HeroSlideshow } from '@canva-web/src/components/blog/sections/HeroSlideshow';
+import { CardSlider } from '@canva-web/src/components/blog/sections/CardSlider';
+import { ColumnList } from '@canva-web/src/components/blog/sections/ColumnList';
+import { BookOpen } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
+import TopPageCard from '@canva-web/src/components/card/top-card/TopPageCard';
+import Search from '@canva-web/src/components/base/search/Search';
 
-export default async function BlogListPage({ searchParams }: { searchParams: Promise<{ page?: string, kw?: string }> }) {
-  const { page, kw } = await searchParams;
+export default async function BlogHomePage() {
   const locale = await getLocale();
-  console.log('locale', locale);
-  const limit = 8;
-  const articles = await fetchArticles(parseInt(page || '1', 10), limit, kw || '', locale);
-  if (!articles?.data) {
-    return notFound();
-  }
-  
+  const response = await fetchBlogHome(locale);
+  const t = await getTranslations('blog');
+  const blogHome = response.data;
+
   return (
     <PageContainer>
-      <Suspense fallback={
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div className="animate-pulse">
-            <div className="h-32 bg-gray-200 dark:bg-gray-800 rounded-xl mb-8" />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-96 bg-gray-200 dark:bg-gray-800 rounded-xl" />
-              ))}
+      <div className="container mx-auto max-w-7xl space-y-12 px-4 py-10 sm:px-6 lg:px-8">
+        <TopPageCard
+          title={t('listTitle')}
+          subTitle={t('listSubtitle')}
+          searchBox={<Search placeholder={t('searchPlaceholder')} />}
+        />
+        {blogHome ? (
+          (blogHome.sections || []).map((section) => {
+            switch (section.__component) {
+              case 'sections.hero-slideshow':
+                return <HeroSlideshow key={section.id} section={section} />;
+              case 'sections.card-slider':
+                return <CardSlider key={section.id} section={section} />;
+              case 'sections.column-list':
+                return <ColumnList key={section.id} section={section} />;
+              default:
+                return null;
+            }
+          })
+        ) : (
+          <div className="flex flex-col items-center justify-center py-20 px-4">
+            <div className="rounded-full bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 p-8 mb-6 shadow-lg">
+              <BookOpen className="w-16 h-16 text-gray-400 dark:text-gray-500" />
             </div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+              {t('emptyTitle')}
+            </h3>
           </div>
-        </div>
-      }>
-        <SearchArticles articles={articles.data} totalItems={articles?.meta?.pagination?.total || 0} limit={limit} />
-      </Suspense>
+        )}
+      </div>
     </PageContainer>
   );
 }

@@ -8,6 +8,7 @@ export type Product = {
   price: number;
   short_description: string;
   description: string;
-  digital_file_url: string;
+  download_url: string;
+  external_link: string;
   images: Image[];
 };

@@ -1,0 +1,37 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/your-uploads/upload",
+      "handler": "your-upload.uploadUserImage",
+      "config": {
+        "policies": [],
+        "uploadUserImage": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/your-uploads/remove/:documentId",
+      "handler": "your-upload.removeUserImage",
+      "config": {
+        "policies": [],
+        "removeUserImage": {
+          "auth": true
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/your-uploads/get-user-images",
+      "handler": "your-upload.getUserImages",
+      "config": {
+        "policies": [],
+        "getUserImages": {
+          "auth": true
+        }
+      }
+    }
+  ]
+}

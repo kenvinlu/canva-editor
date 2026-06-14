@@ -2,6 +2,7 @@ import { IHeader } from '../../interfaces/header';
 
 export const Header: IHeader = {
   home: 'Home',
+  demo: 'Demo',
   about: 'About',
   dashboard: 'Dashboard',
   inbox: 'Inbox',

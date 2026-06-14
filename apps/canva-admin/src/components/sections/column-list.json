@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_column_lists",
+  "info": {
+    "displayName": "Column list",
+    "description": "Column-based list of blog posts",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": false
+    },
+    "columns": {
+      "type": "integer",
+      "required": false
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::article.article"
+    }
+  },
+  "config": {}
+}
+
+

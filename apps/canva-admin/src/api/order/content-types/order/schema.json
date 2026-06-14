@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "inversedBy": "orders"
+    },
+    "total": {
+      "type": "decimal",
+      "required": true
+    },
+    "payment_status": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "pending",
+        "completed",
+        "failed"
+      ]
+    },
+    "payment_intent_id": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email"
+    },
+    "download_count": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    }
+  }
+}

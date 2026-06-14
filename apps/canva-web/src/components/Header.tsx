@@ -1,10 +1,9 @@
 'use client';
 
-import { LogOut, Menu, Shield, User, X, File, Inbox } from 'lucide-react';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { LogOut, Menu, Shield, User, X, File, Inbox, ExternalLink } from 'lucide-react';
+import { Link, usePathname, useRouter } from '@canva-web/src/i18n/navigation';
 import { signOut } from '@canva-web/src/core/actions/session';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { cn } from '../utils';
 import {
   DropdownMenu,
@@ -19,6 +18,7 @@ import { useUserStore } from '@canva-web/src/store/useUserStore';
 import { useMessageStore } from '@canva-web/src/store/useMessageStore';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
+import { useConfigurationStore } from '../store/useConfigurationStore';
 
 const DemoBanner = () => {
   const t = useTranslations();
@@ -41,22 +41,21 @@ export function Header({ isDemo = false }: Props) {
   const isHydrated = useUserStore((state) => state.hydrated);
   const doLogout = useUserStore((state) => state.logout);
   const router = useRouter();
+  const header_menu = useConfigurationStore((state) => state.getHeaderMenu());
+  
+  // Use default menu if header_menu is null, memoized to avoid recreating on every render
+  const navigation = useMemo(() => {
+    if (header_menu && header_menu.length > 0) {
+      return header_menu;
+    }
+    return [];
+  }, [header_menu]);
+
   const handleSignOut = () => {
     void signOut();
     doLogout();
     router.push('/');
   };
-
-  const navigation = [
-    { name: t('header.home'), href: '/' },
-    { name: t('header.templates'), href: '/templates' },
-    { name: t('header.documentation'), href: '/docs' },
-    { name: t('header.blog'), href: '/blog' },
-  ];
-
-  if (!user) {
-    navigation.push({ name: 'Demo', href: '/demo' });
-  }
 
   const messages = useMessageStore((state) => state.messages);
   const unreadCount = messages?.filter((m) => m.messageStatus === 'unread').length || 0;
@@ -79,23 +78,29 @@ export function Header({ isDemo = false }: Props) {
             </Link>
             <nav className="hidden md:flex">
               <ul className="flex items-center gap-6">
-                {navigation.map((item) => {
+                {navigation?.map((item) => {
                   const isActive =
                     pathname === item.href ||
                     (item.href !== '/' && pathname?.startsWith(item.href));
-
+                  if (item.isAuth && !user) {
+                    return null;
+                  }
                   return (
-                    <li key={item.name}>
+                    <li key={item.label}>
                       <Link
                         href={item.href}
+                        target={item.target}
                         className={cn(
-                          'text-sm font-medium transition-colors hover:text-primary',
+                          'flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary',
                           isActive
                             ? 'text-primary font-semibold'
                             : 'text-muted-foreground'
                         )}
                       >
-                        {item.name}
+                        {t(item.label)}
+                        {item.target && (
+                          <ExternalLink className="h-3 w-3" />
+                        )}
                       </Link>
                     </li>
                   );
@@ -220,14 +225,14 @@ export function Header({ isDemo = false }: Props) {
       {mobileMenuOpen && (
         <div className="md:hidden">
           <div className="space-y-1 px-4 py-3 border-b">
-            {navigation.map((item) => {
+            {(navigation || []).map((item) => {
               const isActive =
                 pathname === item.href ||
                 (item.href !== '/' && pathname?.startsWith(item.href));
 
               return (
                 <Link
-                  key={item.name}
+                  key={item.label}
                   href={item.href}
                   className={cn(
                     'block py-2 px-3 text-base font-medium rounded-md',
@@ -237,23 +242,83 @@ export function Header({ isDemo = false }: Props) {
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  {t(item.label)}
                 </Link>
               );
             })}
           </div>
 
+          {isHydrated && user && (
+            <div className="space-y-1 px-4 py-3 border-b">
+              <div className="flex items-center gap-3 px-3 py-2 mb-2">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                  {user?.avatar ? (
+                    <img
+                      src={user?.avatar}
+                      alt={user?.lastName || 'User'}
+                      className="h-9 w-9 rounded-full object-cover"
+                      aria-label={user?.lastName || 'User'}
+                    />
+                  ) : (
+                    <User className="h-5 w-5 text-primary" />
+                  )}
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-sm font-medium">
+                    {user?.firstName || ''} {user?.lastName || ''}
+                  </p>
+                  <p className="text-xs text-muted-foreground truncate max-w-[200px]">
+                    {user?.email}
+                  </p>
+                </div>
+              </div>
+              {dropdownMenu.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    'flex items-center justify-between py-2 px-3 text-base font-medium rounded-md hover:bg-muted/50',
+                    pathname === item.href || (item.href !== '/' && pathname?.startsWith(item.href))
+                      ? 'bg-primary/10 text-primary'
+                      : 'text-foreground hover:text-primary'
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <span className="flex items-center gap-2">
+                    {item.icon}
+                    {item.name}
+                  </span>
+                  {item.badge && item.badge > 0 ? (
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                      {item.badge > 9 ? '9+' : item.badge}
+                    </span>
+                  ) : null}
+                </Link>
+              ))}
+              <button
+                onClick={() => {
+                  handleSignOut();
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full flex items-center gap-2 py-2 px-3 text-base font-medium rounded-md text-destructive hover:bg-destructive/10"
+              >
+                <LogOut className="h-4 w-4" />
+                {t('auth.signOut')}
+              </button>
+            </div>
+          )}
+
           {isHydrated && !user && (
             <div className="space-y-1 px-4 py-3 border-b">
               <Link
-                href="/auth/sign-in"
+                href="/sign-in"
                 className="block py-2 px-3 text-base font-medium rounded-md hover:bg-muted/50"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {t('auth.login')}
               </Link>
               <Link
-                href="/auth/sign-up"
+                href="/sign-up"
                 className="block py-2 px-3 text-base font-medium rounded-md bg-primary text-primary-foreground hover:bg-primary/90"
                 onClick={() => setMobileMenuOpen(false)}
               >

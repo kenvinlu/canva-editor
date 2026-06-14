@@ -9,7 +9,7 @@ export default async function TemplateListPage({ searchParams }: { searchParams:
   const { page, kw } = await searchParams;
   const limit = 8;
   const templates = await fetchMasterTemplates(parseInt(page || '1', 10), limit, kw || '');
-  console.log('templates', templates);
+
   if (!templates?.data) {
     return notFound();
   }

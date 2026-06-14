@@ -117,7 +117,7 @@ test.describe('Webhook log trigger API', () => {
   };
 
   test('triggers webhook log for Canva Editor product', async ({ request }) => {
-    const testEmail = generateTestEmail('canva-editor-07');
+    const testEmail = generateTestEmail('canva-editor-09');
     const saleId = `goOEHfuaeSnx8On0NFQKQg==-${Date.now()}`;
     const orderNumber = `403688769-${Date.now()}`;
 

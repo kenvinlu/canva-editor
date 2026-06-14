@@ -7,23 +7,31 @@ import {
 } from '../services/auth.service';
 import { useUserStore } from '../store/useUserStore';
 import {
-  getSessionData,
   signOut,
   updateSession,
 } from '../core/actions/session';
 import { IGoogleEndPointResponse } from '../components/google-one-tap/types';
 import GoogleOneTapLogin from '../components/google-one-tap';
 import { UserModel } from '../models/user.model';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@canva-web/src/i18n/navigation';
 import { googleOneTapClientId } from '../utils/config';
+import { Configuration } from '../models/configuration.model';
+import { useConfigurationStore } from '@canva-web/src/store/useConfigurationStore';
 
 export default function AppProvider({
   children,
+  userSession,
+  configuration,
 }: {
   children: React.ReactNode;
+  userSession: {
+    token: string;
+  };
+  configuration: Configuration | null;
 }) {
   const setUser = useUserStore((state) => state.setUser);
   const doLogout = useUserStore((state) => state.logout);
+  const setConfiguration = useConfigurationStore((state) => state.setConfiguration);
   const router = useRouter();
   const [enableGoogleOneTap, setEnableGoogleOneTap] = useState(false);
   const handleGoogleOneTapCallback = async (
@@ -63,15 +71,13 @@ export default function AppProvider({
   useEffect(() => {
     const getUser = async () => {
       try {
-        const { token } = await getSessionData();
-        if (!token) {
+        if (!userSession?.token) {
           setEnableGoogleOneTap(true);
           doLogout();
           return;
         }
 
         const userData = await getCurrentUser();
-
         if (userData) {
           setUser(userData as UserModel);
         } else {
@@ -84,12 +90,23 @@ export default function AppProvider({
         await signOut();
       }
     };
+    const getConfiguration = async () => {
+      try {
+        if (!configuration) {
+          throw new Error('Configuration not found');
+        }
+        setConfiguration({...configuration});
+      } catch (error) {
+        console.error('Error getting configuration', error);
+      }
+    };
     getUser();
+    getConfiguration();
   }, []);
 
   return (
     <>
-      {enableGoogleOneTap && (
+      {enableGoogleOneTap && !!googleOneTapClientId && (
         <GoogleOneTapLogin
           onError={(error) => {
             console.log('Google One Tap Error', error);
