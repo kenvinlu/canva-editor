@@ -1,96 +1,110 @@
-# CanvaClone
+# Canva Clone
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+> **Status: Active Development** — core features are working but the project is not yet stable. APIs and interfaces may change. We are actively looking for contributors to help shape v1.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+![Screenshot](./Screenshot.png)
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+**Fork it, shape it, make it yours.**
 
-## Run tasks
+An open-source foundation for building your own online graphic design tool. This monorepo gives you a working canvas editor, a Next.js frontend, a CMS-backed admin panel, and a mock API — so you can skip starting from scratch and focus on what makes your product unique.
 
-To run tasks with Nx use:
+- **Homepage:** [canvaclone.com](https://www.canvaclone.com/)
+- **Docs:** [canvaclone.com/docs](https://www.canvaclone.com/docs)
+- **License:** [MIT with No Resale Clause](./LICENSE.md)
 
-```sh
-npx nx <target> <project-name>
+---
+
+## What's inside
+
+| Package | Description |
+|---|---|
+| `apps/canva-web` | Next.js 16 frontend — templates, projects, auth, i18n |
+| `apps/canva-admin` | Strapi CMS backend — templates, assets, users |
+| `apps/mock-api` | Express mock API for local development without a real backend |
+| `apps/canva-web-e2e` | Playwright end-to-end test suite |
+| `apps/i18n` | Internationalisation string management |
+| `libs/canva-editor` | Core React canvas editor (shapes, text, images, layers) |
+
+**Stack:** React 19 · Next.js 16 · TypeScript · Tailwind CSS · Drizzle ORM · PostgreSQL · Better Auth · Zustand · Nx monorepo · pnpm
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- Node.js 20.x
+- pnpm (`npm install -g pnpm`)
+- PostgreSQL 15+
+
+### Install
+
+```bash
+git clone https://github.com/<your-username>/canva-clone.git
+cd canva-clone
+pnpm install
 ```
 
-For example:
+### Configure environment
 
-```sh
-npx nx build myproject
+```bash
+cp apps/canva-web/.env.example apps/canva-web/.env
+# Fill in your DB connection string, auth secrets, and storage config
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+### Run
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-To install a new plugin you can use the `nx add` command. Here's an example of adding the React plugin:
-```sh
-npx nx add @nx/react
+```bash
+make web_up       # Next.js frontend on localhost:3000
+make admin_up     # Strapi admin on localhost:1337
+make mock_up      # Mock API on localhost:3001
+make editor_up    # Canvas editor in watch mode
 ```
 
-Use the plugin's generator to create new projects. For example, to create a new React app or library:
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full setup guide, including database restore and all available commands.
 
-```sh
-# Generate an app
-npx nx g @nx/react:app demo
+---
 
-# Generate a library
-npx nx g @nx/react:lib some-lib
-```
+## Project status
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+This project is under active development. Here is a rough picture of where things stand:
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+| Area | Status |
+|---|---|
+| Canvas editor (shapes, text, images) | Working |
+| Template browsing & rendering | Working |
+| User authentication | Working |
+| Project save / load | Working |
+| Internationalisation | Working |
+| Export (PNG / PDF) | In progress |
+| Real-time collaboration | Planned |
+| Plugin / extension system | Planned |
+| Comprehensive test coverage | Needs help |
+| Full documentation | Needs help |
 
-## Set up CI!
+Anything marked **In progress** or **Planned** is a great place to contribute.
 
-### Step 1
+---
 
-To connect to Nx Cloud, run the following command:
+## Contributing
 
-```sh
-npx nx connect
-```
+**We need your help.** This project is most useful when it has many contributors improving it together.
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+Whether you want to fix a bug, add a feature, improve documentation, or just report an issue — all contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on how to get set up and submit your first PR.
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+Not sure where to start? Look for issues labelled:
 
-### Step 2
+- [`good first issue`](../../issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) — approachable tasks for newcomers
+- [`help wanted`](../../issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22) — areas where maintainers want outside input
+- [`documentation`](../../issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) — docs improvements that do not require deep codebase knowledge
 
-Use the following command to configure a CI workflow for your workspace:
+---
 
-```sh
-npx nx g ci-workflow
-```
+## Links
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/getting-started/intro#learn-nx?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+| Resource | URL |
+|---|---|
+| Homepage | https://www.canvaclone.com/ |
+| Docs | https://www.canvaclone.com/docs |
+| Contributing guide | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+| License | [LICENSE.md](./LICENSE.md) |
