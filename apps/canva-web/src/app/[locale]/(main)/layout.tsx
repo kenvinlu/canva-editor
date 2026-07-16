@@ -5,17 +5,18 @@ import { ThemeProvider } from '../../../components/ThemeProvider';
 import { TranslationProvider } from '@canva-web/src/providers/TranslateProvider';
 import { getMessages, getLocale } from 'next-intl/server';
 import AppProvider from '@canva-web/src/providers/AppProvider';
-import { Header } from '@canva-web/src/components/Header';
-import { Footer } from '@canva-web/src/components/Footer';
-import { MessageLoader } from '@canva-web/src/components/MessageLoader';
-import { TopMessage } from '@canva-web/src/components/TopMessage';
-import { Toaster } from '@canva-web/src/components/toast';
+// import { Header } from '@canva-web/src/components/Header';
+// import { Footer } from '@canva-web/src/components/Footer';
+// import { MessageLoader } from '@canva-web/src/components/MessageLoader';
+// import { TopMessage } from '@canva-web/src/components/TopMessage';
+// import { Toaster } from '@canva-web/src/components/toast';
 import { getSession } from '@canva-web/src/core/actions/session';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { measurementId } from '@canva-web/src/utils/config';
 import { generateMetadataByPathname } from '@canva-web/src/utils/seo';
 import { headers } from 'next/headers';
 import { fetchConfiguration } from '@canva-web/src/services/configuration.service';
+import { SiteGoodbye } from '@canva-web/src/components/SiteGoodbye';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -38,7 +39,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RootLayout({
-  children,
+  children: _children,
   params,
 }: Readonly<{
   children: React.ReactNode;
@@ -78,7 +79,7 @@ export default async function RootLayout({
             disableTransitionOnChange
           >
             <AppProvider userSession={{ token: userSession?.token || '' }} configuration={configuration || null} >
-              <MessageLoader />
+              {/* <MessageLoader />
               <Toaster />
               <div className="flex min-h-screen flex-col">
                 <TopMessage />
@@ -87,7 +88,8 @@ export default async function RootLayout({
                   {children}
                 </main>
                 <Footer />
-              </div>
+              </div> */}
+              <SiteGoodbye />
             </AppProvider>
           </ThemeProvider>
         </TranslationProvider>
